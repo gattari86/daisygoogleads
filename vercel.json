@@ -4,10 +4,9 @@
   "public": true,
   "buildCommand": "",
   "outputDirectory": ".",
-  "framework": "static",
   "rewrites": [
     {
-      "source": "/",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
