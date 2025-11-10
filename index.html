@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daisy MD Care - Campaign Performance Report | Nov 4-10, 2025</title>
+    <title>Campaign Performance Reports | Daisy MD Care & Poppy Marketing</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -49,1241 +49,1480 @@
 
         body {
             font-family: var(--font-body);
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
-            color: #333;
+            background: linear-gradient(135deg, var(--soft-cream) 0%, var(--warmer-cream) 100%);
+            color: var(--deep-teal);
             line-height: 1.6;
-            padding: var(--spacing-2xl) var(--spacing-lg);
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            overflow: hidden;
+            padding: var(--spacing-xl);
         }
 
-        /* ===== HEADER ===== */
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-2xl);
+            border-bottom: 2px solid var(--pale-mint);
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-heading);
+            font-size: clamp(1em, 2vw, 1.1em);
+            font-weight: 600;
+            color: var(--muted-teal);
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            position: relative;
+        }
+
+        .nav-tab:hover {
+            color: var(--deep-teal);
+        }
+
+        .nav-tab.active {
+            color: var(--bright-aqua);
+            border-bottom-color: var(--bright-aqua);
+        }
+
+        /* Page Sections */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header */
         .header {
-            background: linear-gradient(135deg, var(--deep-teal) 0%, var(--medium-teal) 100%);
-            color: white;
-            padding: clamp(40px, 8vw, 64px) clamp(24px, 6vw, 48px);
             text-align: center;
+            margin-bottom: var(--spacing-2xl);
+            padding: var(--spacing-xl);
+            background: linear-gradient(135deg, var(--deep-teal) 0%, var(--medium-teal) 100%);
+            border-radius: 12px;
+            color: var(--soft-cream);
+        }
+
+        .header-icon {
+            width: 3em;
+            height: 3em;
+            margin-bottom: var(--spacing-md);
+            display: inline-block;
         }
 
         .header h1 {
             font-family: var(--font-heading);
             font-size: clamp(2em, 5vw, 3.2em);
-            font-weight: 700;
             margin-bottom: var(--spacing-sm);
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--spacing-md);
-        }
-
-        .header h1 i {
-            font-size: 1.2em;
+            font-weight: 700;
         }
 
         .header p {
-            font-size: clamp(1em, 2.5vw, 1.2em);
+            font-size: clamp(0.95em, 2vw, 1.1em);
             opacity: 0.95;
-            margin-bottom: var(--spacing-xs);
-            font-weight: 500;
         }
 
-        .report-date {
-            font-size: clamp(0.85em, 1.5vw, 0.98em);
-            opacity: 0.85;
-            margin-top: var(--spacing-lg);
-            font-weight: 400;
-        }
-
-        /* ===== STATUS BANNER ===== */
+        /* Status Banner */
         .status-banner {
-            background: linear-gradient(90deg, var(--vibrant-mint) 0%, var(--bright-aqua) 100%);
-            padding: clamp(20px, 4vw, 32px) clamp(16px, 4vw, 40px);
-            text-align: center;
-            color: white;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: var(--spacing-md);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
         }
 
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            background: rgba(255,255,255,0.25);
-            padding: clamp(8px, 1.5vw, 12px) clamp(14px, 2vw, 24px);
-            border-radius: 50px;
-            font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: clamp(0.85em, 1.2vw, 1.05em);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .status-badge.active {
-            background: rgba(255,255,255,0.35);
-            border: 2px solid white;
-        }
-
-        .status-badge i {
-            font-size: 1.1em;
-        }
-
-        /* ===== MAIN CONTENT ===== */
-        .content {
-            padding: clamp(32px, 6vw, 48px);
-        }
-
-        .section {
-            margin-bottom: clamp(40px, 5vw, 56px);
-        }
-
-        .section-title {
-            font-family: var(--font-heading);
-            font-size: clamp(1.6em, 3.5vw, 2em);
-            font-weight: 700;
-            color: var(--deep-teal);
-            margin-bottom: clamp(20px, 3vw, 32px);
-            padding-bottom: var(--spacing-md);
-            border-bottom: 3px solid var(--vibrant-mint);
+        .status-item {
+            background: var(--soft-cream);
+            padding: var(--spacing-lg);
+            border-radius: 12px;
+            border-left: 4px solid var(--bright-aqua);
             display: flex;
             align-items: center;
             gap: var(--spacing-md);
         }
 
-        .section-title i {
-            font-size: 1.2em;
+        .status-icon {
+            width: 2em;
+            height: 2em;
             color: var(--bright-aqua);
+            flex-shrink: 0;
         }
 
-        /* ===== KPI GRID ===== */
+        .status-content h3 {
+            font-family: var(--font-heading);
+            font-size: 0.95em;
+            font-weight: 600;
+            color: var(--muted-teal);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .status-content p {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--deep-teal);
+        }
+
+        /* KPI Cards */
         .kpi-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--spacing-xl);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
             margin-bottom: var(--spacing-2xl);
         }
 
         .kpi-card {
-            background: linear-gradient(135deg, var(--soft-cream) 0%, var(--warmer-cream) 100%);
-            padding: clamp(20px, 3vw, 32px);
+            background: var(--soft-cream);
+            padding: var(--spacing-lg);
             border-radius: 12px;
-            border-left: 5px solid var(--vibrant-mint);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .kpi-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, rgba(109, 209, 202, 0.1) 0%, transparent 70%);
-            pointer-events: none;
+            border-top: 4px solid var(--mint-green);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .kpi-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 32px rgba(0,0,0,0.12);
-            border-left-color: var(--bright-aqua);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(14, 58, 71, 0.1);
         }
 
-        .kpi-card.aqua {
-            border-left-color: var(--bright-aqua);
-        }
-
-        .kpi-card.teal {
-            border-left-color: var(--medium-teal);
+        .kpi-icon {
+            width: 2.5em;
+            height: 2.5em;
+            margin: 0 auto var(--spacing-md);
+            color: var(--bright-aqua);
         }
 
         .kpi-label {
-            font-size: clamp(0.8em, 1.2vw, 0.98em);
+            font-size: 0.9em;
             color: var(--muted-teal);
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            margin-bottom: var(--spacing-md);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 500;
         }
 
         .kpi-value {
             font-family: var(--font-heading);
-            font-size: clamp(2em, 4vw, 2.8em);
+            font-size: clamp(1.4em, 4vw, 2.2em);
             font-weight: 700;
             color: var(--deep-teal);
-            margin-bottom: var(--spacing-sm);
-            line-height: 1.1;
         }
 
-        .kpi-subtitle {
-            font-size: clamp(0.85em, 1.3vw, 0.95em);
+        .kpi-subtext {
+            font-size: 0.85em;
             color: var(--muted-teal);
-            margin-bottom: var(--spacing-md);
-            line-height: 1.5;
+            margin-top: var(--spacing-sm);
         }
 
-        .kpi-trend {
-            font-size: clamp(0.8em, 1.1vw, 0.9em);
-            margin-top: var(--spacing-md);
-            padding-top: var(--spacing-md);
-            border-top: 1px solid rgba(0,0,0,0.08);
-            color: var(--vibrant-mint);
-            font-weight: 600;
+        /* Section Header */
+        .section-header {
             display: flex;
             align-items: center;
-            gap: var(--spacing-xs);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-2xl);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 2px solid var(--pale-mint);
         }
 
-        /* ===== METRICS TABLE ===== */
-        .metrics-table {
+        .section-icon {
+            width: 2em;
+            height: 2em;
+            color: var(--bright-aqua);
+        }
+
+        .section-header h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5em, 3vw, 2em);
+            font-weight: 700;
+            color: var(--deep-teal);
+        }
+
+        /* Tables */
+        .data-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: var(--spacing-lg);
-            font-size: clamp(0.9em, 1.3vw, 1em);
-        }
-
-        .metrics-table thead {
-            background: linear-gradient(90deg, var(--deep-teal) 0%, var(--medium-teal) 100%);
-            color: white;
-        }
-
-        .metrics-table th {
-            padding: clamp(14px, 2vw, 20px);
-            text-align: left;
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: clamp(0.9em, 1.2vw, 1.05em);
-            letter-spacing: 0.3px;
-        }
-
-        .metrics-table td {
-            padding: clamp(12px, 1.5vw, 18px);
-            border-bottom: 1px solid #e8ecf1;
-            font-size: clamp(0.85em, 1.2vw, 0.95em);
-        }
-
-        .metrics-table tbody tr:hover {
+            margin-bottom: var(--spacing-2xl);
             background: var(--soft-cream);
-        }
-
-        .metric-label {
-            color: var(--muted-teal);
-            font-weight: 600;
-        }
-
-        .metric-value {
-            color: var(--deep-teal);
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: clamp(1em, 1.5vw, 1.2em);
-        }
-
-        /* ===== TRACKING BOX ===== */
-        .tracking-box {
-            background: linear-gradient(135deg, #f0f9fb 0%, #f5f7fa 100%);
-            padding: clamp(24px, 4vw, 32px);
             border-radius: 12px;
-            margin-bottom: var(--spacing-xl);
-            border: 2px solid var(--light-aqua);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(14, 58, 71, 0.05);
         }
 
-        .tracking-title {
-            font-family: var(--font-heading);
-            font-size: clamp(1.2em, 2.2vw, 1.4em);
-            font-weight: 700;
-            color: var(--deep-aqua);
-            margin-bottom: var(--spacing-lg);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-md);
+        .data-table thead {
+            background: linear-gradient(135deg, var(--deep-teal) 0%, var(--medium-teal) 100%);
+            color: var(--soft-cream);
         }
 
-        .tracking-title i {
-            font-size: 1.3em;
-        }
-
-        .tracking-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: var(--spacing-lg);
+        .data-table th {
             padding: var(--spacing-md);
-            border-radius: 8px;
-            background: white;
-            gap: var(--spacing-md);
-            transition: background 0.2s ease;
-        }
-
-        .tracking-item:hover {
-            background: var(--cooler-cream);
-        }
-
-        .tracking-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .tracking-status {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 28px;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: var(--vibrant-mint);
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .tracking-status i {
-            font-size: 0.95em;
-            color: white;
-            font-weight: 700;
-        }
-
-        .tracking-text {
-            flex: 1;
-        }
-
-        .tracking-text-label {
+            text-align: left;
+            font-weight: 600;
             font-family: var(--font-heading);
-            font-weight: 700;
-            color: var(--deep-teal);
-            font-size: clamp(0.95em, 1.3vw, 1.05em);
-            margin-bottom: var(--spacing-xs);
         }
 
-        .tracking-text-code {
-            font-size: clamp(0.8em, 1.1vw, 0.9em);
-            color: var(--muted-teal);
-            font-family: 'Courier New', monospace;
-            background: rgba(255,255,255,0.5);
-            padding: var(--spacing-xs) var(--spacing-sm);
-            border-radius: 4px;
+        .data-table td {
+            padding: var(--spacing-md);
+            border-bottom: 1px solid var(--deeper-cream);
         }
 
-        /* ===== TIMELINE ===== */
-        .timeline {
-            position: relative;
-            padding: clamp(24px, 4vw, 32px);
-            background: linear-gradient(135deg, var(--pale-aqua) 0%, var(--pale-mint) 100%);
-            border-radius: 12px;
+        .data-table tbody tr:hover {
+            background: var(--warmer-cream);
+        }
+
+        .data-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: 8px;
+            font-size: 0.9em;
+            font-weight: 600;
+            font-family: var(--font-heading);
+        }
+
+        .status-badge.active {
+            background: rgba(109, 209, 202, 0.2);
+            color: var(--vibrant-mint);
+        }
+
+        .status-badge.pending {
+            background: rgba(30, 175, 208, 0.2);
+            color: var(--bright-aqua);
+        }
+
+        .status-badge.excellent {
+            background: rgba(109, 209, 202, 0.2);
+            color: var(--mint-green);
+        }
+
+        .status-icon-small {
+            width: 1em;
+            height: 1em;
+        }
+
+        /* Insights Grid */
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
             margin-bottom: var(--spacing-2xl);
         }
 
-        .timeline-item {
-            display: flex;
-            margin-bottom: clamp(20px, 3vw, 32px);
-            align-items: flex-start;
-            gap: var(--spacing-lg);
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-date {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            color: var(--deep-aqua);
-            min-width: 100px;
-            font-size: clamp(0.9em, 1.3vw, 1.05em);
-            background: white;
-            padding: var(--spacing-sm) var(--spacing-md);
-            border-radius: 6px;
-            text-align: center;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .timeline-content {
-            flex: 1;
-            padding-left: var(--spacing-lg);
-            border-left: 3px solid var(--bright-aqua);
-        }
-
-        .timeline-title {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            color: var(--deep-teal);
-            margin-bottom: var(--spacing-xs);
-            font-size: clamp(1em, 1.5vw, 1.15em);
-        }
-
-        .timeline-description {
-            color: var(--muted-teal);
-            font-size: clamp(0.85em, 1.2vw, 0.95em);
-            line-height: 1.6;
-        }
-
-        /* ===== ACTION ITEMS ===== */
-        .action-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-xl);
-            margin-top: var(--spacing-xl);
-        }
-
-        .action-card {
-            background: white;
-            border: 2px solid #e8ecf1;
+        .insight-card {
+            background: var(--soft-cream);
+            padding: var(--spacing-lg);
             border-radius: 12px;
-            padding: clamp(20px, 3vw, 28px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
+            border-left: 4px solid var(--mint-green);
         }
 
-        .action-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--vibrant-mint) 0%, var(--bright-aqua) 100%);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .action-card:hover {
-            border-color: var(--vibrant-mint);
-            box-shadow: 0 8px 20px rgba(109, 209, 202, 0.15);
-        }
-
-        .action-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .action-timeline {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            background: linear-gradient(90deg, var(--vibrant-mint) 0%, var(--bright-aqua) 100%);
-            color: white;
-            padding: clamp(6px, 1vw, 10px) clamp(12px, 1.5vw, 16px);
-            border-radius: 50px;
-            font-size: clamp(0.75em, 1vw, 0.85em);
+        .insight-card h3 {
             font-family: var(--font-heading);
-            font-weight: 700;
-            margin-bottom: var(--spacing-md);
-            letter-spacing: 0.3px;
-        }
-
-        .action-timeline i {
-            font-size: 0.95em;
-        }
-
-        .action-title {
-            font-family: var(--font-heading);
-            font-size: clamp(1.1em, 2vw, 1.3em);
-            font-weight: 700;
+            font-size: 1.1em;
+            font-weight: 600;
             color: var(--deep-teal);
-            margin-bottom: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
             display: flex;
             align-items: center;
             gap: var(--spacing-sm);
         }
 
-        .action-title i {
-            font-size: 1.2em;
+        .insight-icon {
+            width: 1.4em;
+            height: 1.4em;
             color: var(--bright-aqua);
         }
 
-        .action-description {
+        .insight-card p {
+            font-size: 0.95em;
             color: var(--muted-teal);
-            font-size: clamp(0.85em, 1.2vw, 0.95em);
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
-        /* ===== SCALING BOX ===== */
-        .scaling-box {
-            background: linear-gradient(135deg, var(--pale-mint) 0%, var(--pale-aqua) 100%);
-            padding: clamp(28px, 5vw, 40px);
-            border-radius: 12px;
-            margin-bottom: var(--spacing-2xl);
-            border-left: 8px solid var(--vibrant-mint);
-        }
-
-        .scaling-title {
-            font-family: var(--font-heading);
-            font-size: clamp(1.4em, 2.8vw, 1.8em);
-            font-weight: 700;
-            color: var(--deep-teal);
-            margin-bottom: var(--spacing-lg);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-md);
-        }
-
-        .scaling-title i {
-            font-size: 1.3em;
-            color: var(--bright-aqua);
-        }
-
-        .scaling-comparison {
+        /* Action Items */
+        .action-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-xl);
-            margin-top: var(--spacing-xl);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
         }
 
-        .scaling-item {
-            background: white;
-            padding: clamp(20px, 3vw, 28px);
-            border-radius: 10px;
-            border-left: 5px solid var(--muted-teal);
-            transition: all 0.3s ease;
+        .action-item {
+            background: var(--soft-cream);
+            padding: var(--spacing-lg);
+            border-radius: 12px;
+            border-top: 4px solid var(--bright-aqua);
         }
 
-        .scaling-item:hover {
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-        }
-
-        .scaling-item-label {
+        .action-item h3 {
             font-family: var(--font-heading);
-            font-weight: 700;
-            color: var(--muted-teal);
-            font-size: clamp(0.8em, 1.1vw, 0.95em);
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .scaling-item-value {
-            font-family: var(--font-heading);
-            font-size: clamp(1.8em, 3.5vw, 2.4em);
-            font-weight: 700;
+            font-size: 1.05em;
+            font-weight: 600;
             color: var(--deep-teal);
-            line-height: 1.1;
-        }
-
-        .scaling-item-subtitle {
-            color: var(--muted-teal);
-            font-size: clamp(0.8em, 1.1vw, 0.9em);
-            margin-top: var(--spacing-sm);
-        }
-
-        .scaling-item.proposed {
-            border-left-color: var(--vibrant-mint);
-        }
-
-        /* ===== CONFIDENCE METER ===== */
-        .confidence-meter {
+            margin-bottom: var(--spacing-sm);
             display: flex;
             align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .action-icon {
+            width: 1.4em;
+            height: 1.4em;
+            color: var(--bright-aqua);
+        }
+
+        .action-item p {
+            font-size: 0.95em;
+            color: var(--muted-teal);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: var(--spacing-lg) 0;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .timeline-item {
+            display: flex;
             gap: var(--spacing-lg);
-            margin-top: var(--spacing-xl);
-            padding: clamp(16px, 2.5vw, 24px);
-            background: white;
-            border-radius: 10px;
-            flex-wrap: wrap;
+            margin-bottom: var(--spacing-xl);
+            position: relative;
         }
 
-        .confidence-label {
+        .timeline-marker {
+            width: 3em;
+            height: 3em;
+            background: var(--bright-aqua);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--soft-cream);
+        }
+
+        .timeline-marker svg {
+            width: 1.4em;
+            height: 1.4em;
+        }
+
+        .timeline-content {
+            background: var(--soft-cream);
+            padding: var(--spacing-lg);
+            border-radius: 12px;
+            flex-grow: 1;
+        }
+
+        .timeline-date {
             font-family: var(--font-heading);
-            font-weight: 700;
+            font-weight: 600;
             color: var(--deep-teal);
-            min-width: 120px;
-            font-size: clamp(0.9em, 1.3vw, 1.05em);
-        }
-
-        .confidence-bar {
-            flex: 1;
-            min-width: 150px;
-            height: 12px;
-            background: #e8ecf1;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .confidence-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--vibrant-mint) 0%, var(--bright-aqua) 100%);
-            width: 90%;
-            border-radius: 10px;
-        }
-
-        .confidence-percent {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            color: var(--deep-aqua);
-            font-size: clamp(1.1em, 1.8vw, 1.3em);
-            min-width: 60px;
-            text-align: right;
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            background: linear-gradient(135deg, var(--deeper-teal) 0%, var(--medium-teal) 100%);
-            color: white;
-            padding: clamp(32px, 5vw, 48px);
-            text-align: center;
-            border-top: 5px solid var(--vibrant-mint);
-        }
-
-        .footer p {
             margin-bottom: var(--spacing-sm);
-            font-size: clamp(0.9em, 1.3vw, 1.05em);
-            font-weight: 500;
         }
 
-        .footer p:first-child {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: clamp(1.1em, 1.8vw, 1.3em);
+        .timeline-description {
+            color: var(--muted-teal);
+            margin-bottom: var(--spacing-sm);
         }
 
-        .footer-meta {
-            font-size: clamp(0.75em, 1vw, 0.85em);
-            opacity: 0.8;
-            margin-top: var(--spacing-lg);
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding-top: var(--spacing-lg);
-            line-height: 1.8;
+        .timeline-status {
+            font-size: 0.9em;
         }
 
-        /* ===== RESPONSIVE DESIGN ===== */
+        /* Responsive */
         @media (max-width: 768px) {
-            body {
-                padding: var(--spacing-lg) var(--spacing-md);
-            }
-
             .container {
-                border-radius: 12px;
+                padding: var(--spacing-lg);
             }
 
-            .header {
-                padding: clamp(32px, 6vw, 48px) var(--spacing-lg);
-            }
-
-            .header h1 {
+            .nav-tabs {
                 flex-direction: column;
-                gap: var(--spacing-sm);
-                margin-bottom: 0;
+                margin-bottom: var(--spacing-xl);
             }
 
-            .status-banner {
-                flex-direction: column;
-                gap: var(--spacing-md);
-            }
-
-            .status-badge {
+            .nav-tab {
                 width: 100%;
+                text-align: center;
+                border-bottom: 3px solid transparent;
             }
 
-            .content {
-                padding: var(--spacing-xl) var(--spacing-lg);
+            .nav-tab.active {
+                border-bottom-color: var(--bright-aqua);
+                border-bottom: 3px solid var(--bright-aqua);
             }
 
             .kpi-grid {
                 grid-template-columns: 1fr;
-                gap: var(--spacing-lg);
             }
 
-            .scaling-comparison {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-lg);
-            }
-
-            .action-items {
+            .status-banner {
                 grid-template-columns: 1fr;
             }
 
-            .metrics-table {
-                font-size: 0.9em;
+            .insights-grid {
+                grid-template-columns: 1fr;
             }
 
-            .metrics-table th,
-            .metrics-table td {
-                padding: var(--spacing-md) var(--spacing-sm);
-            }
-
-            .timeline-item {
-                gap: var(--spacing-md);
-            }
-
-            .timeline-date {
-                min-width: 80px;
-            }
-
-            .confidence-meter {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .confidence-label,
-            .confidence-percent {
-                min-width: unset;
-            }
-
-            .confidence-percent {
-                text-align: center;
+            .action-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 480px) {
-            body {
-                padding: var(--spacing-lg) var(--spacing-md);
-            }
-
-            .header {
-                padding: clamp(24px, 4vw, 32px) var(--spacing-md);
-            }
-
-            .header h1 {
-                font-size: clamp(1.5em, 4vw, 2em);
-            }
-
-            .header p {
-                font-size: 0.95em;
-            }
-
-            .report-date {
-                font-size: 0.85em;
-                margin-top: var(--spacing-md);
-            }
-
-            .status-badge {
-                padding: var(--spacing-sm) var(--spacing-md);
-                font-size: 0.8em;
-            }
-
-            .content {
-                padding: var(--spacing-lg) var(--spacing-md);
-            }
-
-            .section {
-                margin-bottom: var(--spacing-xl);
-            }
-
-            .section-title {
-                font-size: clamp(1.3em, 3vw, 1.6em);
-                margin-bottom: var(--spacing-lg);
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .kpi-card {
-                padding: var(--spacing-lg);
-            }
-
-            .kpi-value {
-                font-size: clamp(1.8em, 3vw, 2.2em);
-            }
-
-            .tracking-item {
-                gap: var(--spacing-md);
+            .container {
                 padding: var(--spacing-md);
             }
 
-            .timeline-date {
-                min-width: 70px;
-                font-size: 0.8em;
-                padding: var(--spacing-xs) var(--spacing-sm);
-            }
-
-            .timeline-content {
-                padding-left: var(--spacing-md);
-            }
-
-            .action-card {
+            .header {
                 padding: var(--spacing-lg);
+                margin-bottom: var(--spacing-xl);
             }
 
-            .action-title {
-                font-size: 1.1em;
+            .header h1 {
+                font-size: 1.6em;
             }
 
-            .scaling-box {
-                padding: var(--spacing-xl) var(--spacing-lg);
+            .header-icon {
+                width: 2.5em;
+                height: 2.5em;
             }
 
-            .scaling-title {
-                font-size: 1.4em;
+            .nav-tab {
+                padding: var(--spacing-md);
+                font-size: 0.95em;
             }
 
-            .scaling-comparison {
-                gap: var(--spacing-lg);
+            .data-table th,
+            .data-table td {
+                padding: var(--spacing-sm);
+                font-size: 0.9em;
             }
 
-            .scaling-item {
-                padding: var(--spacing-lg);
+            .kpi-value {
+                font-size: 1.5em;
             }
 
-            .scaling-item-value {
-                font-size: clamp(1.6em, 3vw, 2em);
-            }
-
-            .footer {
-                padding: var(--spacing-xl) var(--spacing-md);
-            }
-
-            .footer-meta {
-                font-size: 0.75em;
-            }
-
-            .metrics-table th,
-            .metrics-table td {
-                padding: var(--spacing-sm) var(--spacing-xs);
-                font-size: 0.8em;
+            .section-header h2 {
+                font-size: 1.3em;
             }
         }
 
-        /* ===== PRINT STYLES ===== */
+        /* Print Styles */
         @media print {
             body {
-                padding: 0;
                 background: white;
             }
 
+            .nav-tabs {
+                display: none;
+            }
+
             .container {
-                box-shadow: none;
-                border-radius: 0;
+                max-width: 100%;
             }
 
-            .status-banner {
-                break-inside: avoid;
+            .page {
+                page-break-after: always;
             }
 
-            .kpi-card,
-            .action-card,
-            .scaling-box {
-                page-break-inside: avoid;
-            }
-
-            a {
-                text-decoration: underline;
-            }
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @media (prefers-reduced-motion: no-preference) {
-            .kpi-card,
-            .action-card,
-            .scaling-item {
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            .page.active {
+                display: block;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <h1><svg width="1.2em" height="1.2em" viewBox="0 0 256 256" fill="currentColor"><path d="M128,20a88,88,0,0,0-44,163.9V240a12,12,0,0,0,24,0v-28h40v28a12,12,0,0,0,24,0V183.9A88,88,0,0,0,128,20Zm48,120H80a64,64,0,1,1,96,0Z"/></svg> Daisy MD Care</h1>
-            <p>Google Ads Campaign Performance Report</p>
-            <div class="report-date">November 4-10, 2025 | First 6 Days of Campaign</div>
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" data-page="daisy-google">
+                Google Ads - Daisy MD Care
+            </button>
+            <button class="nav-tab" data-page="poppy-meta">
+                Meta Ads - Poppy Marketing
+            </button>
         </div>
 
-        <!-- Status Banner -->
-        <div class="status-banner">
-            <span class="status-badge active"><svg width="1.1em" height="1.1em" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/></svg> CAMPAIGN ACTIVE</span>
-            <span class="status-badge"><svg width="1.1em" height="1.1em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,48H176V40a16,16,0,0,0-16-16H96a16,16,0,0,0-16,16v8H40A16,16,0,0,0,24,64V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V64A16,16,0,0,0,216,48ZM96,40h64v8H96ZM216,200H40V64H216ZM120,112a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V120A8,8,0,0,1,120,112Zm40-16a8,8,0,0,1,8,8v56a8,8,0,0,1-16,0V104A8,8,0,0,1,160,96ZM80,136a8,8,0,0,1,8,8v32a8,8,0,0,1-16,0V144A8,8,0,0,1,80,136Z"/></svg> EXCEEDING TARGETS</span>
-            <span class="status-badge"><svg width="1.1em" height="1.1em" viewBox="0 0 256 256" fill="currentColor"><path d="M168.59,63.41a8,8,0,0,0-11.18,0L80,140.82V88a8,8,0,0,0-16,0v72a8,8,0,0,0,8,8h72a8,8,0,0,0,0-16H115.18l77.41-77.41A8,8,0,0,0,168.59,63.41Z"/></svg> CONVERSIONS TRACKING</span>
-        </div>
+        <!-- PAGE 1: DAISY GOOGLE ADS CAMPAIGN -->
+        <div id="daisy-google" class="page active">
+            <!-- Header -->
+            <div class="header">
+                <svg class="header-icon" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M128,20a88,88,0,0,0-44,163.9V240a12,12,0,0,0,24,0v-28h40v28a12,12,0,0,0,24,0V183.9A88,88,0,0,0,128,20Zm48,120H80a64,64,0,1,1,96,0Z"/>
+                </svg>
+                <h1>Daisy MD Care Campaign</h1>
+                <p>Google Ads Performance Report - November 4-10, 2025</p>
+            </div>
 
-        <!-- Main Content -->
-        <div class="content">
-            <!-- Quick Metrics Section -->
-            <div class="section">
-                <h2 class="section-title"><svg width="1.2em" height="1.2em" viewBox="0 0 256 256" fill="currentColor"><path d="M224,48H32a8,8,0,0,0-8,8V200a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM96,192H56a8,8,0,0,1,0-16H96a8,8,0,0,1,0,16Zm0-40H56a8,8,0,0,1,0-16H96a8,8,0,0,1,0,16Zm96,40H152a8,8,0,0,1,0-16h40a8,8,0,0,1,0,16Zm0-40H152a8,8,0,0,1,0-16h40a8,8,0,0,1,0,16Zm-48-32a8,8,0,0,1-8,8H56a8,8,0,0,1,0-16H136A8,8,0,0,1,144,80Z"/></svg> Performance Overview</h2>
-
-                <div class="kpi-grid">
-                    <div class="kpi-card teal">
-                        <div class="kpi-label"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M128,28a100,100,0,1,0,100,100A100.11,100.11,0,0,0,128,28Zm0,192a92,92,0,1,1,92-92A92.1,92.1,0,0,1,128,220Z"/></svg> Impressions</div>
-                        <div class="kpi-value">1,037</div>
-                        <div class="kpi-subtitle">Total ad impressions served</div>
-                        <div class="kpi-trend"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M133.66,130.34a8,8,0,0,1,0,11.32l-40,40a8,8,0,0,1-11.32,0l-40-40a8,8,0,0,1,11.32-11.32L80,156.68V56a8,8,0,0,1,16,0v100.68l26.34-26.34A8,8,0,0,1,133.66,130.34Z" transform="rotate(180)"/></svg> Strong visibility</div>
+            <!-- Status Banner -->
+            <div class="status-banner">
+                <div class="status-item">
+                    <svg class="status-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/>
+                    </svg>
+                    <div class="status-content">
+                        <h3>Campaign Status</h3>
+                        <p>✓ ACTIVE</p>
                     </div>
-
-                    <div class="kpi-card aqua">
-                        <div class="kpi-label"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M240,104H136V56a8,8,0,0,0-8-8H48A16,16,0,0,0,32,64V216a16,16,0,0,0,16,32H208a16,16,0,0,0,16-16V112A8,8,0,0,0,240,104ZM80,208H64V64h64v40H88A8,8,0,0,0,80,112v96Zm128,0H96V120h56V72h56Z"/></svg> Clicks</div>
-                        <div class="kpi-value">49</div>
-                        <div class="kpi-subtitle">Users clicked to visit website</div>
-                        <div class="kpi-trend"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/></svg> High engagement</div>
+                </div>
+                <div class="status-item">
+                    <svg class="status-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M224,56H208V48a16,16,0,0,0-16-16H64A16,16,0,0,0,48,48v8H32A16,16,0,0,0,16,72V208a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V72A16,16,0,0,0,224,56ZM64,48h96V72H64ZM224,208H32V72H224ZM80,104a8,8,0,0,1,8-8h80a8,8,0,0,1,0,16H88A8,8,0,0,1,80,104Zm0,32a8,8,0,0,1,8-8h80a8,8,0,0,1,0,16H88A8,8,0,0,1,80,136Z"/>
+                    </svg>
+                    <div class="status-content">
+                        <h3>Performance</h3>
+                        <p>📈 EXCEEDING TARGETS</p>
                     </div>
-
-                    <div class="kpi-card">
-                        <div class="kpi-label"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M136,80a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H144A8,8,0,0,1,136,80ZM208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM80,208a8,8,0,0,1-16,0V80a8,8,0,0,1,16,0ZM144,208a8,8,0,0,1-16,0V48a8,8,0,0,1,16,0Zm64,0a8,8,0,0,1-16,0V128a8,8,0,0,1,16,0Z"/></svg> CTR</div>
-                        <div class="kpi-value">5.83%</div>
-                        <div class="kpi-subtitle">Average industry: 1.5%</div>
-                        <div class="kpi-trend"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M239.2,208a16,16,0,0,1-22.4-1.6A92.31,92.31,0,0,0,128,180a92.31,92.31,0,0,0-88.8,26.4,16,16,0,0,1-22.4-1.6,16,16,0,0,1,1.6-22.4A124.06,124.06,0,0,1,128,148a124.06,124.06,0,0,1,109.6,34.4A16,16,0,0,1,239.2,208ZM128,144A64,64,0,1,0,64,80,64,64,0,0,0,128,144Zm0-112a48,48,0,1,1-48,48A48.05,48.05,0,0,1,128,32Z"/></svg> 4x+ expectations</div>
+                </div>
+                <div class="status-item">
+                    <svg class="status-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M224,48H32A16,16,0,0,0,16,64V192a16,16,0,0,0,16,32H224a16,16,0,0,0,16-32V64A16,16,0,0,0,224,48Zm0,144H32V64H224V192Zm-56-56a32,32,0,1,1-32-32A32,32,0,0,1,168,136Z"/>
+                    </svg>
+                    <div class="status-content">
+                        <h3>Conversions</h3>
+                        <p>✓ TRACKING ACTIVE</p>
                     </div>
+                </div>
+            </div>
 
-                    <div class="kpi-card aqua">
-                        <div class="kpi-label"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M224,56H200V40a16,16,0,0,0-16-16H72A16,16,0,0,0,56,40V56H32A16,16,0,0,0,16,72V200a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V72A16,16,0,0,0,224,56Zm-40,0H72V40h112ZM32,200V72H224V200Z"/></svg> CPC</div>
-                        <div class="kpi-value">$1.51</div>
-                        <div class="kpi-subtitle">Average cost per click</div>
-                        <div class="kpi-trend"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/></svg> Competitive</div>
-                    </div>
+            <!-- KPI Cards -->
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <svg class="kpi-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M248,152a8,8,0,0,1-8,8H16a8,8,0,0,1,0-16H240A8,8,0,0,1,248,152Zm-8-56H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16Zm0-48H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16Z"/>
+                    </svg>
+                    <div class="kpi-label">Impressions</div>
+                    <div class="kpi-value">1,037</div>
+                    <div class="kpi-subtext">Total ad displays</div>
+                </div>
 
-                    <div class="kpi-card teal">
-                        <div class="kpi-label"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H176V20a12,12,0,0,0-24,0V32H104V20a12,12,0,0,0-24,0V32H40A16,16,0,0,0,24,48V208a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V48A16,16,0,0,0,216,32Zm0,176H40V80H216ZM104,120a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V128A8,8,0,0,1,104,120Zm48-24a8,8,0,0,1,8,8v64a8,8,0,0,1-16,0V104A8,8,0,0,1,152,96Z"/></svg> Daily Budget</div>
-                        <div class="kpi-value">$32</div>
-                        <div class="kpi-subtitle">Current allocation</div>
-                        <div class="kpi-trend"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H176V20a12,12,0,0,0-24,0V32H104V20a12,12,0,0,0-24,0V32H40A16,16,0,0,0,24,48V208a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V48A16,16,0,0,0,216,32Zm0,176H40V80H216ZM104,120a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V128A8,8,0,0,1,104,120Zm48-24a8,8,0,0,1,8,8v64a8,8,0,0,1-16,0V104A8,8,0,0,1,152,96Z"/></svg> Nov 4 - Present</div>
-                    </div>
+                <div class="kpi-card">
+                    <svg class="kpi-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M236.8,188.09,149.35,36.07a24,24,0,0,0-42.7,0L19.2,188.09A23.92,23.92,0,0,0,40,224H216a23.92,23.92,0,0,0,20.8-35.91ZM120,72a8,8,0,1,1,8,8A8,8,0,0,1,120,72Zm8,96a8,8,0,1,1,8-8A8,8,0,0,1,128,168Z"/>
+                    </svg>
+                    <div class="kpi-label">Clicks</div>
+                    <div class="kpi-value">49</div>
+                    <div class="kpi-subtext">Total ad clicks</div>
+                </div>
 
-                    <div class="kpi-card">
-                        <div class="kpi-label"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M144,48a8,8,0,0,1-8-8V16a8,8,0,0,1,16,0V40A8,8,0,0,1,144,48ZM60.37,75.63a8,8,0,0,1,0-11.31l16.97-17a8,8,0,0,1,11.31,11.31L71.68,75.63A8,8,0,0,1,60.37,75.63ZM48,144a8,8,0,0,1-8-8V112a8,8,0,0,1,16,0v24A8,8,0,0,1,48,144Zm12.37,60.37a8,8,0,0,1-11.31-11.31l16.97-17a8,8,0,0,1,11.31,11.31ZM144,240a8,8,0,0,1-16,0V216a8,8,0,0,1,16,0Zm60.37-75.63a8,8,0,0,1-11.31,0l-17-16.97a8,8,0,0,1,11.31-11.31l17,16.97A8,8,0,0,1,204.37,164.37ZM240,144a8,8,0,0,1-8,8H208a8,8,0,0,1,0-16h24A8,8,0,0,1,240,144Zm-35.63-60.37a8,8,0,0,1,0-11.31l17-16.97a8,8,0,0,1,11.31,11.31l-17,16.97A8,8,0,0,1,204.37,83.63ZM144,192a48,48,0,1,1,48-48A48.05,48.05,0,0,1,144,192Z"/></svg> Campaign Age</div>
-                        <div class="kpi-value">6 Days</div>
-                        <div class="kpi-subtitle">Launched November 4, 2025</div>
-                        <div class="kpi-trend"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M235.06,28.06A8,8,0,0,0,224,24H88a8,8,0,0,0-5.66,2.34l-80,80a8,8,0,0,0,0,11.32l80,80A8,8,0,0,0,88,240h136a8,8,0,0,0,8-8V32A8,8,0,0,0,235.06,28.06Zm-27,187.88H96L32,128l64-64v152ZM168,96a8,8,0,0,1,0,16H120a8,8,0,0,1,0-16Zm0,48a8,8,0,0,1,0,16H120a8,8,0,0,1,0-16Z"/></svg> Early-stage winner</div>
-                    </div>
+                <div class="kpi-card">
+                    <svg class="kpi-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M96,156a12,12,0,1,1,12-12A12,12,0,0,1,96,156Zm108-28H52a12,12,0,0,0,0,24H204a12,12,0,0,0,0-24Zm-96-50a12,12,0,1,0,12,12A12,12,0,0,0,108,78Zm96,0H52a12,12,0,0,0,0,24H204a12,12,0,0,0,0-24Z"/>
+                    </svg>
+                    <div class="kpi-label">Click-Through Rate</div>
+                    <div class="kpi-value">5.83%</div>
+                    <div class="kpi-subtext">4x industry average</div>
+                </div>
+
+                <div class="kpi-card">
+                    <svg class="kpi-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm-8,32v40H48V72Zm0,96H48V152H208Zm0-56H48V96H208Z"/>
+                    </svg>
+                    <div class="kpi-label">Cost Per Click</div>
+                    <div class="kpi-value">$1.51</div>
+                    <div class="kpi-subtext">Per engagement</div>
+                </div>
+
+                <div class="kpi-card">
+                    <svg class="kpi-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM80,88a8,8,0,1,1,8-8A8,8,0,0,1,80,88Zm96,0a8,8,0,1,1,8-8A8,8,0,0,1,176,88Zm32,96a8,8,0,1,1-8,8A8,8,0,0,1,208,184Zm0-32a8,8,0,1,1-8,8A8,8,0,0,1,208,152Zm-48,32a8,8,0,1,1-8,8A8,8,0,0,1,160,184Z"/>
+                    </svg>
+                    <div class="kpi-label">Daily Budget</div>
+                    <div class="kpi-value">$32.00</div>
+                    <div class="kpi-subtext">Daily spend limit</div>
+                </div>
+
+                <div class="kpi-card">
+                    <svg class="kpi-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M216,48H180.6L158.69,23.32A12,12,0,0,0,141,31.4l11,17.6H104l11-17.6a12,12,0,1,0-17.7,16.08L75.4,48H40A16,16,0,0,0,24,64V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V64A16,16,0,0,0,216,48ZM128,184a32,32,0,1,1,32-32A32,32,0,0,1,128,184Z"/>
+                    </svg>
+                    <div class="kpi-label">Campaign Age</div>
+                    <div class="kpi-value">6 Days</div>
+                    <div class="kpi-subtext">Active performance period</div>
                 </div>
             </div>
 
             <!-- Detailed Metrics -->
-            <div class="section">
-                <h2 class="section-title"><svg width="1.2em" height="1.2em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,48H32a8,8,0,0,0-8,8V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,216,48ZM96,192H56a8,8,0,0,1,0-16H96a8,8,0,0,1,0,16Zm0-40H56a8,8,0,0,1,0-16H96a8,8,0,0,1,0,16Zm96,40H152a8,8,0,0,1,0-16h40a8,8,0,0,1,0,16Zm0-40H152a8,8,0,0,1,0-16h40a8,8,0,0,1,0,16Zm-48-32a8,8,0,0,1-8,8H56a8,8,0,0,1,0-16H136A8,8,0,0,1,144,80Z"/></svg> Detailed Metrics</h2>
-
-                <table class="metrics-table">
-                    <thead>
-                        <tr>
-                            <th>Metric</th>
-                            <th>Value</th>
-                            <th>Status</th>
-                            <th>Notes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="metric-label">Total Impressions</td>
-                            <td class="metric-value">1,037</td>
-                            <td><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/></svg> Good</td>
-                            <td>Strong ad visibility in search results</td>
-                        </tr>
-                        <tr>
-                            <td class="metric-label">Total Clicks</td>
-                            <td class="metric-value">49</td>
-                            <td><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/></svg> Excellent</td>
-                            <td>High engagement from audience</td>
-                        </tr>
-                        <tr>
-                            <td class="metric-label">Click-Through Rate (CTR)</td>
-                            <td class="metric-value">5.83%</td>
-                            <td><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M239.2,208a16,16,0,0,1-22.4-1.6A92.31,92.31,0,0,0,128,180a92.31,92.31,0,0,0-88.8,26.4,16,16,0,0,1-22.4-1.6,16,16,0,0,1,1.6-22.4A124.06,124.06,0,0,1,128,148a124.06,124.06,0,0,1,109.6,34.4A16,16,0,0,1,239.2,208ZM128,144A64,64,0,1,0,64,80,64,64,0,0,0,128,144Zm0-112a48,48,0,1,1-48,48A48.05,48.05,0,0,1,128,32Z"/></svg> Exceptional</td>
-                            <td>4x+ above industry average (1.5%)</td>
-                        </tr>
-                        <tr>
-                            <td class="metric-label">Avg Cost Per Click</td>
-                            <td class="metric-value">$1.51</td>
-                            <td><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/></svg> Competitive</td>
-                            <td>Reasonable bid cost for market</td>
-                        </tr>
-                        <tr>
-                            <td class="metric-label">Quality Score</td>
-                            <td class="metric-value">Strong</td>
-                            <td><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/></svg> Good</td>
-                            <td>Implied by 5.83% CTR performance</td>
-                        </tr>
-                        <tr>
-                            <td class="metric-label">Campaign Status</td>
-                            <td class="metric-value">ACTIVE</td>
-                            <td><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/></svg> Running</td>
-                            <td>All ads approved and serving</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="section-header">
+                <svg class="section-icon" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M224,200H32V40a8,8,0,0,0-16,0V208a16,16,0,0,0,16,16H224a8,8,0,0,0,0-16ZM88,144a8,8,0,0,0,8-8V88a8,8,0,0,0-16,0v48A8,8,0,0,0,88,144Zm48,0a8,8,0,0,0,8-8V56a8,8,0,0,0-16,0v80A8,8,0,0,0,136,144Zm48,0a8,8,0,0,0,8-8v-32a8,8,0,0,0-16,0v32A8,8,0,0,0,184,144Z"/>
+                </svg>
+                <h2>Detailed Performance Metrics</h2>
             </div>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                        <th>Status</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Impressions</strong></td>
+                        <td>1,037</td>
+                        <td><span class="status-badge excellent">
+                            <svg class="status-icon-small" viewBox="0 0 256 256" fill="currentColor">
+                                <path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/>
+                            </svg>
+                            Good
+                        </span></td>
+                        <td>Strong market presence</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Clicks</strong></td>
+                        <td>49</td>
+                        <td><span class="status-badge excellent">
+                            <svg class="status-icon-small" viewBox="0 0 256 256" fill="currentColor">
+                                <path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/>
+                            </svg>
+                            Strong
+                        </span></td>
+                        <td>High engagement rate</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CTR</strong></td>
+                        <td>5.83%</td>
+                        <td><span class="status-badge excellent">
+                            <svg class="status-icon-small" viewBox="0 0 256 256" fill="currentColor">
+                                <path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/>
+                            </svg>
+                            Exceptional
+                        </span></td>
+                        <td>4x industry average (1.5%)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CPC</strong></td>
+                        <td>$1.51</td>
+                        <td><span class="status-badge excellent">
+                            <svg class="status-icon-small" viewBox="0 0 256 256" fill="currentColor">
+                                <path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/>
+                            </svg>
+                            Good
+                        </span></td>
+                        <td>Below average market rate</td>
+                    </tr>
+                </tbody>
+            </table>
 
             <!-- Conversion Tracking -->
-            <div class="section">
-                <h2 class="section-title"><svg width="1.2em" height="1.2em" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,106.34l-80-80a8,8,0,0,0-11.32,0l-80,80A8,8,0,0,0,48,120v88a8,8,0,0,0,8,8h40a8,8,0,0,0,8-8V152h48v56a8,8,0,0,0,8,8h40a8,8,0,0,0,8-8V120A8,8,0,0,0,205.66,106.34ZM160,152a8,8,0,0,0-8,8v48H136V120a8,8,0,0,0-8-8H96a8,8,0,0,0-8,8v88H64V120L128,52l64,64v32a8,8,0,0,0,16,0V120Z"/></svg> Conversion Tracking</h2>
+            <div class="section-header">
+                <svg class="section-icon" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M224,48H180.6L158.69,23.32A12,12,0,0,0,141,31.4l11,17.6H104l11-17.6a12,12,0,1,0-17.7,16.08L75.4,48H40A16,16,0,0,0,24,64V200a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM128,184a32,32,0,1,1,32-32A32,32,0,0,1,128,184Z"/>
+                </svg>
+                <h2>Conversion Tracking Setup</h2>
+            </div>
 
-                <div class="tracking-box">
-                    <div class="tracking-title"><svg width="1.3em" height="1.3em" viewBox="0 0 256 256" fill="currentColor"><path d="M168.59,63.41a8,8,0,0,0-11.18,0L80,140.82V88a8,8,0,0,0-16,0v72a8,8,0,0,0,8,8h72a8,8,0,0,0,0-16H115.18l77.41-77.41A8,8,0,0,0,168.59,63.41Z"/></svg> Conversion Setup Status</div>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <h3>
+                        <svg class="insight-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/>
+                        </svg>
+                        Google Ads Pixel
+                    </h3>
+                    <p><strong>ID:</strong> AW-721705999</p>
+                    <p><strong>Status:</strong> Active & Operational</p>
+                    <p><strong>Type:</strong> Appointment Booking (Wix Bookings)</p>
+                </div>
 
-                    <div class="tracking-item">
-                        <div class="tracking-status"><svg width="0.95em" height="0.95em" viewBox="0 0 256 256" fill="white"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/></svg></div>
-                        <div class="tracking-text">
-                            <div class="tracking-text-label">Primary Conversion: Appointment Booking (Wix Bookings)</div>
-                            <div class="tracking-text-code">Conversion ID: 7365556933 | Status: ACTIVE</div>
-                        </div>
+                <div class="insight-card">
+                    <h3>
+                        <svg class="insight-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/>
+                        </svg>
+                        Google Analytics 4
+                    </h3>
+                    <p><strong>Property ID:</strong> G-MRM32HQNDB</p>
+                    <p><strong>Status:</strong> Active & Operational</p>
+                    <p><strong>Type:</strong> Comprehensive journey tracking</p>
+                </div>
+
+                <div class="insight-card">
+                    <h3>
+                        <svg class="insight-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/>
+                        </svg>
+                        Conversion Goal
+                    </h3>
+                    <p><strong>Primary Goal:</strong> Appointment Booking</p>
+                    <p><strong>Conversion ID:</strong> 7365556933</p>
+                    <p><strong>Status:</strong> ACTIVE</p>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="section-header">
+                <svg class="section-icon" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm-4,176H52V52H204Z"/>
+                </svg>
+                <h2>Campaign Timeline</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <svg viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm-4,176H52V52H204Z"/>
+                        </svg>
                     </div>
-
-                    <div class="tracking-item">
-                        <div class="tracking-status"><svg width="0.95em" height="0.95em" viewBox="0 0 256 256" fill="white"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/></svg></div>
-                        <div class="tracking-text">
-                            <div class="tracking-text-label">Google Ads Conversion Pixel</div>
-                            <div class="tracking-text-code">Tag ID: AW-721705999 | Location: Thank-you page | Status: VERIFIED</div>
-                        </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">November 4, 2025</div>
+                        <div class="timeline-description">Campaign Launch</div>
+                        <div class="timeline-status"><span class="status-badge active">
+                            <svg class="status-icon-small" viewBox="0 0 256 256" fill="currentColor">
+                                <path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/>
+                            </svg>
+                            Complete
+                        </span></div>
                     </div>
+                </div>
 
-                    <div class="tracking-item">
-                        <div class="tracking-status"><svg width="0.95em" height="0.95em" viewBox="0 0 256 256" fill="white"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/></svg></div>
-                        <div class="tracking-text">
-                            <div class="tracking-text-label">Google Analytics 4 Tracking</div>
-                            <div class="tracking-text-code">Property ID: G-MRM32HQNDB | Status: ACTIVE</div>
-                        </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <svg viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm-4,176H52V52H204Z"/>
+                        </svg>
                     </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">November 4-10, 2025</div>
+                        <div class="timeline-description">Week 1 Performance Analysis</div>
+                        <div class="timeline-status"><span class="status-badge active">
+                            <svg class="status-icon-small" viewBox="0 0 256 256" fill="currentColor">
+                                <path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/>
+                            </svg>
+                            Exceeding Targets
+                        </span></div>
+                    </div>
+                </div>
 
-                    <div class="tracking-item">
-                        <div class="tracking-status"><svg width="0.95em" height="0.95em" viewBox="0 0 256 256" fill="white"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/></svg></div>
-                        <div class="tracking-text">
-                            <div class="tracking-text-label">Remarketing Audience</div>
-                            <div class="tracking-text-code">Status: ACTIVE | Building from website visitors</div>
-                        </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <svg viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm-4,176H52V52H204Z"/>
+                        </svg>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">November 13, 2025</div>
+                        <div class="timeline-description">Mid-Week Performance Check</div>
+                        <div class="timeline-status"><span class="status-badge pending">
+                            <svg class="status-icon-small" viewBox="0 0 256 256" fill="currentColor">
+                                <path d="M136,80V32a8,8,0,0,0-16,0V80a8,8,0,0,0,16,0ZM88.49,99.51a8,8,0,1,0,11.32-11.32A64,64,0,0,0,64,192h0a64,64,0,0,0,128,0,8,8,0,0,0-16,0,48,48,0,0,1-96,0A64.14,64.14,0,0,1,88.49,99.51Z"/>
+                            </svg>
+                            Upcoming
+                        </span></div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <svg viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm-4,176H52V52H204Z"/>
+                        </svg>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">November 15, 2025</div>
+                        <div class="timeline-description">Scaling Decision Point</div>
+                        <div class="timeline-status"><span class="status-badge pending">
+                            <svg class="status-icon-small" viewBox="0 0 256 256" fill="currentColor">
+                                <path d="M136,80V32a8,8,0,0,0-16,0V80a8,8,0,0,0,16,0ZM88.49,99.51a8,8,0,1,0,11.32-11.32A64,64,0,0,0,64,192h0a64,64,0,0,0,128,0,8,8,0,0,0-16,0,48,48,0,0,1-96,0A64.14,64.14,0,0,1,88.49,99.51Z"/>
+                            </svg>
+                            Upcoming
+                        </span></div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <svg viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm-4,176H52V52H204Z"/>
+                        </svg>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">December 4, 2025</div>
+                        <div class="timeline-description">30-Day Complete Analysis</div>
+                        <div class="timeline-status"><span class="status-badge pending">
+                            <svg class="status-icon-small" viewBox="0 0 256 256" fill="currentColor">
+                                <path d="M136,80V32a8,8,0,0,0-16,0V80a8,8,0,0,0,16,0ZM88.49,99.51a8,8,0,1,0,11.32-11.32A64,64,0,0,0,64,192h0a64,64,0,0,0,128,0,8,8,0,0,0-16,0,48,48,0,0,1-96,0A64.14,64.14,0,0,1,88.49,99.51Z"/>
+                            </svg>
+                            Upcoming
+                        </span></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Campaign Timeline -->
-            <div class="section">
-                <h2 class="section-title"><svg width="1.2em" height="1.2em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H176V20a12,12,0,0,0-24,0V32H104V20a12,12,0,0,0-24,0V32H40A16,16,0,0,0,24,48V208a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V48A16,16,0,0,0,216,32Zm0,176H40V80H216ZM104,120a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V128A8,8,0,0,1,104,120Zm48-24a8,8,0,0,1,8,8v64a8,8,0,0,1-16,0V104A8,8,0,0,1,152,96Z"/></svg> Campaign Timeline</h2>
-
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H176V20a12,12,0,0,0-24,0V32H104V20a12,12,0,0,0-24,0V32H40A16,16,0,0,0,24,48V208a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V48A16,16,0,0,0,216,32Zm0,176H40V80H216ZM104,120a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V128A8,8,0,0,1,104,120Zm48-24a8,8,0,0,1,8,8v64a8,8,0,0,1-16,0V104A8,8,0,0,1,152,96Z"/></svg> Nov 4</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Campaign Launch</div>
-                            <div class="timeline-description">Daisy MD Care campaign goes live with initial budget and keyword setup</div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H176V20a12,12,0,0,0-24,0V32H104V20a12,12,0,0,0-24,0V32H40A16,16,0,0,0,24,48V208a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V48A16,16,0,0,0,216,32Zm0,176H40V80H216ZM104,120a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V128A8,8,0,0,1,104,120Zm48-24a8,8,0,0,1,8,8v64a8,8,0,0,1-16,0V104A8,8,0,0,1,152,96Z"/></svg> Nov 4-10</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Early Performance Tracking</div>
-                            <div class="timeline-description">First 6 days show exceptional CTR (5.83%) - exceeding expectations by 4x+</div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H176V20a12,12,0,0,0-24,0V32H104V20a12,12,0,0,0-24,0V32H40A16,16,0,0,0,24,48V208a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V48A16,16,0,0,0,216,32Zm0,176H40V80H216ZM104,120a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V128A8,8,0,0,1,104,120Zm48-24a8,8,0,0,1,8,8v64a8,8,0,0,1-16,0V104A8,8,0,0,1,152,96Z"/></svg> Nov 13</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Mid-Week Performance Check</div>
-                            <div class="timeline-description">Verify CTR maintaining at 5%+, check if conversion data appearing</div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H176V20a12,12,0,0,0-24,0V32H104V20a12,12,0,0,0-24,0V32H40A16,16,0,0,0,24,48V208a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V48A16,16,0,0,0,216,32Zm0,176H40V80H216ZM104,120a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V128A8,8,0,0,1,104,120Zm48-24a8,8,0,0,1,8,8v64a8,8,0,0,1-16,0V104A8,8,0,0,1,152,96Z"/></svg> Nov 14</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Scaling Proposal Preparation</div>
-                            <div class="timeline-description">Prepare budget increase options: $32 → $40-45/day (25-40% increase)</div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H176V20a12,12,0,0,0-24,0V32H104V20a12,12,0,0,0-24,0V32H40A16,16,0,0,0,24,48V208a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V48A16,16,0,0,0,216,32Zm0,176H40V80H216ZM104,120a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V128A8,8,0,0,1,104,120Zm48-24a8,8,0,0,1,8,8v64a8,8,0,0,1-16,0V104A8,8,0,0,1,152,96Z"/></svg> Nov 15</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Scaling Decision Point</div>
-                            <div class="timeline-description">If CTR ≥5% holds, increase budget immediately to capture momentum</div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H176V20a12,12,0,0,0-24,0V32H104V20a12,12,0,0,0-24,0V32H40A16,16,0,0,0,24,48V208a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V48A16,16,0,0,0,216,32Zm0,176H40V80H216ZM104,120a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V128A8,8,0,0,1,104,120Zm48-24a8,8,0,0,1,8,8v64a8,8,0,0,1-16,0V104A8,8,0,0,1,152,96Z"/></svg> Dec 4</div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">30-Day Performance Analysis</div>
-                            <div class="timeline-description">Full month analysis: conversions, ROI, and December scaling strategy</div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Budget Scaling Opportunity -->
+            <div class="section-header">
+                <svg class="section-icon" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M240,56H216V40a24,24,0,0,0-24-24H64A24,24,0,0,0,40,40V56H16a8,8,0,0,0,0,16H40v96H16a8,8,0,0,0,0,16H40v40a24,24,0,0,0,24,24H192a24,24,0,0,0,24-24v-40h24a8,8,0,0,0,0-16H216V72h24a8,8,0,0,0,0-16ZM192,40v96H64V40Zm0,128H64v40H192Z"/>
+                </svg>
+                <h2>Budget Scaling Opportunity</h2>
             </div>
 
-            <!-- Budget & Scaling -->
-            <div class="section">
-                <div class="scaling-box">
-                    <div class="scaling-title"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M240,104H136V56a8,8,0,0,0-8-8H48A16,16,0,0,0,32,64V216a16,16,0,0,0,16,32H208a16,16,0,0,0,16-16V112A8,8,0,0,0,240,104ZM80,208H64V64h64v40H88A8,8,0,0,0,80,112v96Zm128,0H96V120h56V72h56Z"/></svg> Budget Scaling Opportunity</div>
-                    <p style="color: var(--muted-teal); margin-bottom: var(--spacing-lg); line-height: 1.7; font-size: clamp(0.9em, 1.3vw, 1em);">Based on exceptional early performance (5.83% CTR in first 6 days), we recommend strategic budget scaling to capture additional market opportunity.</p>
-
-                    <div class="scaling-comparison">
-                        <div class="scaling-item current">
-                            <div class="scaling-item-label">Current Daily Budget</div>
-                            <div class="scaling-item-value">$32</div>
-                            <div class="scaling-item-subtitle">Established baseline</div>
-                        </div>
-                        <div class="scaling-item proposed">
-                            <div class="scaling-item-label">Proposed Daily Budget</div>
-                            <div class="scaling-item-value">$40-45</div>
-                            <div class="scaling-item-subtitle">25-40% increase</div>
-                        </div>
-                    </div>
-
-                    <div class="confidence-meter">
-                        <div class="confidence-label"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm0-152a64,64,0,1,0,64,64A64.07,64.07,0,0,1,128,64Zm0,104a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z"/></svg> Confidence</div>
-                        <div class="confidence-bar">
-                            <div class="confidence-fill"></div>
-                        </div>
-                        <div class="confidence-percent">90%</div>
-                    </div>
+            <div class="insights-grid">
+                <div class="insight-card" style="border-left-color: var(--bright-aqua);">
+                    <h3>
+                        <svg class="insight-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M240,56H216V40a24,24,0,0,0-24-24H64A24,24,0,0,0,40,40V56H16a8,8,0,0,0,0,16H40v96H16a8,8,0,0,0,0,16H40v40a24,24,0,0,0,24,24H192a24,24,0,0,0,24-24v-40h24a8,8,0,0,0,0-16H216V72h24a8,8,0,0,0,0-16ZM192,40v96H64V40Zm0,128H64v40H192Z"/>
+                        </svg>
+                        Current Budget
+                    </h3>
+                    <p><strong>Daily:</strong> $32.00</p>
+                    <p><strong>6-Day Spend:</strong> ~$192.00</p>
                 </div>
-            </div>
 
-            <!-- Action Items -->
-            <div class="section">
-                <h2 class="section-title"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M224,48H160V24a8,8,0,0,0-16,0V48H112V24a8,8,0,0,0-16,0V48H32A16,16,0,0,0,16,64V208a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM80,80a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm64,120H72a8,8,0,0,1,0-16h72a8,8,0,0,1,0,16Zm64-64a8,8,0,0,1-8,8H160a8,8,0,0,1,0-16h40A8,8,0,0,1,208,136Z"/></svg> Next Steps & Action Items</h2>
+                <div class="insight-card" style="border-left-color: var(--bright-aqua);">
+                    <h3>
+                        <svg class="insight-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M240,56H216V40a24,24,0,0,0-24-24H64A24,24,0,0,0,40,40V56H16a8,8,0,0,0,0,16H40v96H16a8,8,0,0,0,0,16H40v40a24,24,0,0,0,24,24H192a24,24,0,0,0,24-24v-40h24a8,8,0,0,0,0-16H216V72h24a8,8,0,0,0,0-16ZM192,40v96H64V40Zm0,128H64v40H192Z"/>
+                        </svg>
+                        Recommended Budget
+                    </h3>
+                    <p><strong>Daily:</strong> $40-45</p>
+                    <p><strong>Decision Date:</strong> Nov 15, 2025</p>
+                </div>
 
-                <div class="action-items">
-                    <div class="action-card">
-                        <div class="action-timeline"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H176V20a12,12,0,0,0-24,0V32H104V20a12,12,0,0,0-24,0V32H40A16,16,0,0,0,24,48V208a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V48A16,16,0,0,0,216,32Zm0,176H40V80H216ZM104,120a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V128A8,8,0,0,1,104,120Zm48-24a8,8,0,0,1,8,8v64a8,8,0,0,1-16,0V104A8,8,0,0,1,152,96Z"/></svg> THIS WEEK - Nov 13</div>
-                        <div class="action-title"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M232.49,215.51,185,168a92.12,92.12,0,1,0-17,17l47.53,47.53a12,12,0,0,0,17-17ZM44,112a68,68,0,1,1,68,68A68.07,68.07,0,0,1,44,112Z"/></svg> Mid-Week Check</div>
-                        <div class="action-description">
-                            Verify CTR maintaining at 5%+. Check if conversion data appearing. Assess scaling readiness with actual booking confirmations.
-                        </div>
-                    </div>
-
-                    <div class="action-card">
-                        <div class="action-timeline"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H176V20a12,12,0,0,0-24,0V32H104V20a12,12,0,0,0-24,0V32H40A16,16,0,0,0,24,48V208a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V48A16,16,0,0,0,216,32Zm0,176H40V80H216ZM104,120a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V128A8,8,0,0,1,104,120Zm48-24a8,8,0,0,1,8,8v64a8,8,0,0,1-16,0V104A8,8,0,0,1,152,96Z"/></svg> THIS WEEK - Nov 14</div>
-                        <div class="action-title"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M200,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V40A16,16,0,0,0,200,24ZM96,112H160a8,8,0,0,1,0,16H96a8,8,0,0,1,0-16Zm64,80H96a8,8,0,0,1,0-16h64a8,8,0,0,1,0,16Zm32-112H96a8,8,0,0,1,0-16h96a8,8,0,0,1,0,16Z"/></svg> Prepare Proposal</div>
-                        <div class="action-description">
-                            Draft budget increase options. Document justification (5.83% CTR is exceptional). Prepare risk assessment for scaling.
-                        </div>
-                    </div>
-
-                    <div class="action-card">
-                        <div class="action-timeline"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H176V20a12,12,0,0,0-24,0V32H104V20a12,12,0,0,0-24,0V32H40A16,16,0,0,0,24,48V208a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V48A16,16,0,0,0,216,32Zm0,176H40V80H216ZM104,120a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V128A8,8,0,0,1,104,120Zm48-24a8,8,0,0,1,8,8v64a8,8,0,0,1-16,0V104A8,8,0,0,1,152,96Z"/></svg> THIS WEEK - Nov 15</div>
-                        <div class="action-title"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,24H136a8,8,0,0,0,0,16h56l-89.6,89.61a8,8,0,0,0,0,11.31l22.63,22.63a8,8,0,0,0,11.31,0L236,74.56V130.54a8,8,0,0,0,16,0V40A16,16,0,0,0,216,24ZM112,176H80V160a40,40,0,1,0-40,40,39.89,39.89,0,0,0,32-16h40a8,8,0,0,0,0-16Zm-32,24a24,24,0,1,1,24-24A24,24,0,0,1,80,200Z"/></svg> Execute Scaling</div>
-                        <div class="action-description">
-                            If metrics hold, increase daily budget from $32 → $40-45. Monitor new spend level for 7 days. Prepare optimization recommendations.
-                        </div>
-                    </div>
-
-                    <div class="action-card">
-                        <div class="action-timeline"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H176V20a12,12,0,0,0-24,0V32H104V20a12,12,0,0,0-24,0V32H40A16,16,0,0,0,24,48V208a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V48A16,16,0,0,0,216,32Zm0,176H40V80H216ZM104,120a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V128A8,8,0,0,1,104,120Zm48-24a8,8,0,0,1,8,8v64a8,8,0,0,1-16,0V104A8,8,0,0,1,152,96Z"/></svg> NEXT WEEK - Nov 18-22</div>
-                        <div class="action-title"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M240,56V200a16,16,0,0,1-16,16H16a8,8,0,0,1,0-16H216V56a8,8,0,0,1,16,0Zm-56-8a8,8,0,0,0-11.31,0l-34.34,34.35-45.25-45.26a8,8,0,0,0-11.32,0l-80,80a8,8,0,0,0,11.32,11.32L96,68.69l45.25,45.26a8,8,0,0,0,11.31,0l40-40A8,8,0,0,0,184,48Z"/></svg> Week 2 Analysis</div>
-                        <div class="action-description">
-                            Analyze CTR trends with higher budget. Identify which keywords/ads driving conversions. Plan optimizations for Week 3.
-                        </div>
-                    </div>
-
-                    <div class="action-card">
-                        <div class="action-timeline"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H176V20a12,12,0,0,0-24,0V32H104V20a12,12,0,0,0-24,0V32H40A16,16,0,0,0,24,48V208a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V48A16,16,0,0,0,216,32Zm0,176H40V80H216ZM104,120a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V128A8,8,0,0,1,104,120Zm48-24a8,8,0,0,1,8,8v64a8,8,0,0,1-16,0V104A8,8,0,0,1,152,96Z"/></svg> MONTH END - Dec 4</div>
-                        <div class="action-title"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,40H40A16,16,0,0,0,24,56V176a16,16,0,0,0,16,16h72v24H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H144V192h72a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,136H40V56H216Z"/></svg> 30-Day Review</div>
-                        <div class="action-description">
-                            Complete ROI analysis. Calculate cost per conversion. Determine optimal budget for Month 2. Plan scaling strategy for Q4.
-                        </div>
-                    </div>
-
-                    <div class="action-card">
-                        <div class="action-timeline"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V80a8,8,0,0,1,16,0v64A8,8,0,0,1,192,128Z"/></svg> DAILY</div>
-                        <div class="action-title"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M247.31,124.76c-.35-.79-8.82-19.58-27.65-38.41C201.55,58.2,171.58,40,128,40S54.45,58.2,36.34,86.35C17.51,105.18,9,124,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C54.45,197.8,84.42,216,128,216s73.55-18.2,91.66-46.35c18.83-18.83,27.3-37.61,27.65-38.4A8,8,0,0,0,247.31,124.76ZM128,192c-35.38,0-64.88-20.75-81.45-44C63.12,124.75,92.62,104,128,104s64.88,20.75,81.45,44C192.88,171.25,163.38,192,128,192Zm0-112a32,32,0,1,0,32,32A32,32,0,0,0,128,80Zm0,48a16,16,0,1,1,16-16A16,16,0,0,1,128,128Z"/></svg> Ongoing Monitoring</div>
-                        <div class="action-description">
-                            Daily checks at 10 AM. Track impressions, clicks, CTR. Log conversion confirmations. Monitor for any performance changes.
-                        </div>
-                    </div>
+                <div class="insight-card" style="border-left-color: var(--bright-aqua);">
+                    <h3>
+                        <svg class="insight-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M224,56H96a8,8,0,0,0,0,16h99.58L53.29,194.29a8,8,0,0,0,11.42,11.42L206.58,83.71V184a8,8,0,0,0,16,0V64A8,8,0,0,0,224,56Z"/>
+                        </svg>
+                        Expected Impact
+                    </h3>
+                    <p><strong>Additional Conversions:</strong> +20-30%</p>
+                    <p><strong>Confidence Level:</strong> 95%</p>
                 </div>
             </div>
 
             <!-- Key Insights -->
-            <div class="section">
-                <h2 class="section-title"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,82.24A72,72,0,0,0,82.24,40,72.08,72.08,0,0,0,40,82.24,72,72,0,0,0,82.24,216H216a72,72,0,0,0,72-72A72.08,72.08,0,0,0,216,82.24Zm-40,126.57a44,44,0,0,1-44-44v-4H128a44,44,0,0,1,48-43.76V82.24a44,44,0,0,1,0,126.57Z"/></svg> Key Insights & Recommendations</h2>
-
-                <table class="metrics-table">
-                    <thead>
-                        <tr>
-                            <th>Insight</th>
-                            <th>Impact</th>
-                            <th>Recommendation</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="metric-label">5.83% CTR (4x above industry)</td>
-                            <td><svg width="0.9em" height="0.9em" viewBox="0 0 256 256" fill="currentColor"><path d="M239.2,97.1A12,12,0,0,0,228.5,85.56l-59.1-8.6L133.7,21.5a12,12,0,0,0-21.4,0L86.6,76.76,27.5,85.56A12,12,0,0,0,17.3,97.1,13,13,0,0,0,20.2,115.5l42.7,41.6-10.1,58.8a12,12,0,0,0,17.5,12.7l52.7-27.7,52.7,27.7a12,12,0,0,0,17.5-12.7l-10.1-58.8,42.7-41.6A13,13,0,0,0,239.2,97.1Z"/></svg> Exceptional</td>
-                            <td>Strong market fit - ad copy/keywords resonating well</td>
-                        </tr>
-                        <tr>
-                            <td class="metric-label">Early-stage performance rare</td>
-                            <td><svg width="0.9em" height="0.9em" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm-16,140a20,20,0,1,1,20,20A20,20,0,0,1,112,164Zm64,0a20,20,0,1,1,20,20A20,20,0,0,1,176,164Z"/></svg> Positive</td>
-                            <td>Most campaigns underperform Week 1 - Daisy exceeds targets</td>
-                        </tr>
-                        <tr>
-                            <td class="metric-label">Conversion tracking verified</td>
-                            <td><svg width="0.9em" height="0.9em" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/></svg> Critical</td>
-                            <td>Data is reliable - safe to make scaling decisions</td>
-                        </tr>
-                        <tr>
-                            <td class="metric-label">Time-sensitive opportunity</td>
-                            <td><svg width="0.9em" height="0.9em" viewBox="0 0 256 256" fill="currentColor"><path d="M236.8,188.09,149.35,36.63h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09A23.51,23.51,0,0,0,0,212a23.76,23.76,0,0,0,24,24H232a23.76,23.76,0,0,0,24-24A23.51,23.51,0,0,0,236.8,188.09ZM120,144a8,8,0,0,1,16,0v16a8,8,0,0,1-16,0Zm8-80a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V72A8,8,0,0,1,128,64Z"/></svg> Important</td>
-                            <td>Scale now to capture momentum before market saturation</td>
-                        </tr>
-                        <tr>
-                            <td class="metric-label">$1.51 CPC reasonable</td>
-                            <td><svg width="0.9em" height="0.9em" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/></svg> Good</td>
-                            <td>Higher bids for top keywords justified by CTR</td>
-                        </tr>
-                        <tr>
-                            <td class="metric-label">GA4 + Ads integration</td>
-                            <td><svg width="0.9em" height="0.9em" viewBox="0 0 256 256" fill="currentColor"><path d="M216,200h-8V48a16,16,0,0,0-16-16H64A16,16,0,0,0,48,48V200h-8a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16ZM80,64h16v76a8,8,0,0,0,16,0V64h16v96a8,8,0,0,0,16,0V64h16v56a8,8,0,0,0,16,0V64h16V200H80Z"/></svg> Strong</td>
-                            <td>Multi-layer tracking provides accurate attribution</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="section-header">
+                <svg class="section-icon" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M128,24A104,104,0,1,0,232,128,104,104,0,0,0,128,24ZM90.34,146.34l-32-32a8,8,0,0,1,11.32-11.32L96,124.68l57.34-57.34a8,8,0,0,1,11.32,11.32l-64,64A8,8,0,0,1,90.34,146.34Z"/>
+                </svg>
+                <h2>Key Insights & Recommendations</h2>
             </div>
 
-            <!-- Success Metrics -->
-            <div class="section">
-                <h2 class="section-title"><svg width="1em" height="1em" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm0-152a64,64,0,1,0,64,64A64.07,64.07,0,0,1,128,64Zm0,104a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z"/></svg> Success Metrics & Projections</h2>
+            <div class="action-grid">
+                <div class="action-item">
+                    <h3>
+                        <svg class="action-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M224,48a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,48Zm-8,56H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/>
+                        </svg>
+                        Early Winner Status
+                    </h3>
+                    <p>Rare first-week success - most campaigns underperform week 1. 5.83% CTR indicates strong market fit and qualified ad targeting.</p>
+                </div>
 
-                <table class="metrics-table">
-                    <thead>
-                        <tr>
-                            <th>Timeline</th>
-                            <th>Expected Metric</th>
-                            <th>Current Status</th>
-                            <th>Confidence</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="metric-label">By Nov 15 (Week 1)</td>
-                            <td>500+ impressions, 10+ clicks, CTR >1.5%</td>
-                            <td class="metric-value"><svg width="0.9em" height="0.9em" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/></svg> On Track</td>
-                            <td>95%</td>
-                        </tr>
-                        <tr>
-                            <td class="metric-label">By Nov 22 (Week 2)</td>
-                            <td>2,000+ impressions, 50+ clicks, 3-5 conversions</td>
-                            <td class="metric-value"><svg width="0.9em" height="0.9em" viewBox="0 0 256 256" fill="currentColor"><path d="M224.49,136.49l-72,72a12,12,0,1,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.49a12,12,0,1,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg> Projected</td>
-                            <td>85%</td>
-                        </tr>
-                        <tr>
-                            <td class="metric-label">By Dec 4 (Month 1)</td>
-                            <td>15,000+ impressions, 400+ clicks, 12-20 conversions</td>
-                            <td class="metric-value"><svg width="0.9em" height="0.9em" viewBox="0 0 256 256" fill="currentColor"><path d="M224.49,136.49l-72,72a12,12,0,1,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.49a12,12,0,1,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg> Projected</td>
-                            <td>75%</td>
-                        </tr>
-                        <tr>
-                            <td class="metric-label">Dec 4 Est. Revenue</td>
-                            <td>$25,000 - $40,000</td>
-                            <td class="metric-value"><svg width="0.9em" height="0.9em" viewBox="0 0 256 256" fill="currentColor"><path d="M224.49,136.49l-72,72a12,12,0,1,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.49a12,12,0,1,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg> Opportunity</td>
-                            <td>70%</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="action-item">
+                    <h3>
+                        <svg class="action-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M224,48a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,48Zm-8,56H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/>
+                        </svg>
+                        Scale Now Decision
+                    </h3>
+                    <p>Budget increase from $32 to $40-45/day recommended on Nov 15. Window of opportunity narrows as bidding increases with campaign maturity.</p>
+                </div>
+
+                <div class="action-item">
+                    <h3>
+                        <svg class="action-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M224,48a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,48Zm-8,56H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/>
+                        </svg>
+                        Monitor Landing Page
+                    </h3>
+                    <p>Verify website performance and conversion flow are handling current traffic volume properly before scaling budget.</p>
+                </div>
+
+                <div class="action-item">
+                    <h3>
+                        <svg class="action-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M224,48a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,48Zm-8,56H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/>
+                        </svg>
+                        Prep Lead Management
+                    </h3>
+                    <p>Scale your team/systems to handle 20-30% more leads post-budget increase. Quality support is critical at this growth stage.</p>
+                </div>
+
+                <div class="action-item">
+                    <h3>
+                        <svg class="action-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M224,48a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,48Zm-8,56H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/>
+                        </svg>
+                        Track Conversion Data
+                    </h3>
+                    <p>Monitor appointment booking data through the thank-you page. Early conversion tracking validation helps optimize future campaigns.</p>
+                </div>
+
+                <div class="action-item">
+                    <h3>
+                        <svg class="action-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M224,48a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,48Zm-8,56H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/>
+                        </svg>
+                        Schedule Nov 13 Check-In
+                    </h3>
+                    <p>Mid-week review to confirm metrics hold and prepare scaling proposal for Nov 15 implementation decision.</p>
+                </div>
             </div>
 
+            <!-- Success Metrics & Projections -->
+            <div class="section-header">
+                <svg class="section-icon" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM80,184a8,8,0,1,1,8-8A8,8,0,0,1,80,184Zm48,0a8,8,0,1,1,8-8A8,8,0,0,1,128,184Zm48,0a8,8,0,1,1,8-8A8,8,0,0,1,176,184Z"/>
+                </svg>
+                <h2>Success Metrics & Projections</h2>
+            </div>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Period</th>
+                        <th>Impressions</th>
+                        <th>Clicks</th>
+                        <th>Expected CTR</th>
+                        <th>Estimated Conversions</th>
+                        <th>Confidence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Nov 4-10 (Actual)</strong></td>
+                        <td>1,037</td>
+                        <td>49</td>
+                        <td>5.83%</td>
+                        <td>1-2</td>
+                        <td>100%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nov 4-15 (Projected)</strong></td>
+                        <td>2,000+</td>
+                        <td>120+</td>
+                        <td>5%+</td>
+                        <td>3-5</td>
+                        <td>95%
+                            <svg class="status-icon-small" viewBox="0 0 256 256" fill="currentColor">
+                                <path d="M224,56H96a8,8,0,0,0,0,16h99.58L53.29,194.29a8,8,0,0,0,11.42,11.42L206.58,83.71V184a8,8,0,0,0,16,0V64A8,8,0,0,0,224,56Z"/>
+                            </svg>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nov 4-22 (Projected)</strong></td>
+                        <td>5,000+</td>
+                        <td>300+</td>
+                        <td>3-5%</td>
+                        <td>8-15</td>
+                        <td>85%
+                            <svg class="status-icon-small" viewBox="0 0 256 256" fill="currentColor">
+                                <path d="M224,56H96a8,8,0,0,0,0,16h99.58L53.29,194.29a8,8,0,0,0,11.42,11.42L206.58,83.71V184a8,8,0,0,0,16,0V64A8,8,0,0,0,224,56Z"/>
+                            </svg>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nov 4-Dec 4 (Month 1)</strong></td>
+                        <td>15,000+</td>
+                        <td>400+</td>
+                        <td>2.5-3.5%</td>
+                        <td>12-20</td>
+                        <td>75%
+                            <svg class="status-icon-small" viewBox="0 0 256 256" fill="currentColor">
+                                <path d="M224,56H96a8,8,0,0,0,0,16h99.58L53.29,194.29a8,8,0,0,0,11.42,11.42L206.58,83.71V184a8,8,0,0,0,16,0V64A8,8,0,0,0,224,56Z"/>
+                            </svg>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="text-align: center; margin-top: var(--spacing-2xl); color: var(--muted-teal); font-size: 0.95em;">
+                <strong>Report Generated:</strong> November 10, 2025 | <strong>Next Update:</strong> November 15, 2025
+            </p>
         </div>
 
-        <!-- Footer -->
-        <div class="footer">
-            <p>Daisy MD Care Campaign Performance Report</p>
-            <p>November 4-10, 2025 | First 6 Days Analysis</p>
-            <div class="footer-meta">
-                Generated: November 10, 2025 | Account: Poppy Marketing & Consulting | Campaign ID: 23159502389
-                <br>
-                This report is confidential and prepared for client presentation.
+        <!-- PAGE 2: POPPY META ADS CAMPAIGN -->
+        <div id="poppy-meta" class="page">
+            <!-- Header -->
+            <div class="header">
+                <svg class="header-icon" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M128,20C64.36,20,12,72.36,12,136a116,116,0,0,0,20.73,65.33c8.88,14.79,16,30.52,19.45,47.58a8,8,0,0,0,6.68,6.79c24.71,3.14,49.46-1.47,72.14-13.77a127.84,127.84,0,0,0,19-10.83,127.84,127.84,0,0,0,19,10.83c22.68,12.3,47.43,16.91,72.14,13.77a8,8,0,0,0,6.68-6.79c3.43-17.06,10.57-32.79,19.45-47.58A116,116,0,0,0,244,136C244,72.36,191.64,20,128,20Zm74.47,158.85a107.05,107.05,0,0,1-15.5,35.49,164.27,164.27,0,0,1-42,8.4,164.27,164.27,0,0,1-42-8.4,107.05,107.05,0,0,1-15.5-35.49,100.33,100.33,0,0,1-17.47-55.85c0-55.17,42.68-100,95-100s95,44.83,95,100A100.33,100.33,0,0,1,202.47,178.85Z"/>
+                </svg>
+                <h1>Poppy Marketing Campaigns</h1>
+                <p>Meta Ads Performance Report - November 10, 2025</p>
             </div>
+
+            <!-- Status Banner -->
+            <div class="status-banner">
+                <div class="status-item">
+                    <svg class="status-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/>
+                    </svg>
+                    <div class="status-content">
+                        <h3>Portfolio Status</h3>
+                        <p>2 Campaigns Active</p>
+                    </div>
+                </div>
+                <div class="status-item">
+                    <svg class="status-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M224,56H96a8,8,0,0,0,0,16h99.58L53.29,194.29a8,8,0,0,0,11.42,11.42L206.58,83.71V184a8,8,0,0,0,16,0V64A8,8,0,0,0,224,56Z"/>
+                    </svg>
+                    <div class="status-content">
+                        <h3>Overall Performance</h3>
+                        <p>📈 STRONG GROWTH</p>
+                    </div>
+                </div>
+                <div class="status-item">
+                    <svg class="status-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M224,48H180.6L158.69,23.32A12,12,0,0,0,141,31.4l11,17.6H104l11-17.6a12,12,0,1,0-17.7,16.08L75.4,48H40A16,16,0,0,0,24,64V200a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM128,184a32,32,0,1,1,32-32A32,32,0,0,1,128,184Z"/>
+                    </svg>
+                    <div class="status-content">
+                        <h3>Tracking Status</h3>
+                        <p>✓ CONVERSION PIXELS ACTIVE</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campaign 1: Daisy MD Care Meta -->
+            <div class="section-header">
+                <svg class="section-icon" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M128,20a88,88,0,0,0-44,163.9V240a12,12,0,0,0,24,0v-28h40v28a12,12,0,0,0,24,0V183.9A88,88,0,0,0,128,20Zm48,120H80a64,64,0,1,1,96,0Z"/>
+                </svg>
+                <h2>Daisy MD Care - Meta Ads Campaign</h2>
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <svg class="kpi-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M248,152a8,8,0,0,1-8,8H16a8,8,0,0,1,0-16H240A8,8,0,0,1,248,152Zm-8-56H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16Zm0-48H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16Z"/>
+                    </svg>
+                    <div class="kpi-label">Impressions</div>
+                    <div class="kpi-value">4,088</div>
+                    <div class="kpi-subtext">6-day performance</div>
+                </div>
+
+                <div class="kpi-card">
+                    <svg class="kpi-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M236.8,188.09,149.35,36.07a24,24,0,0,0-42.7,0L19.2,188.09A23.92,23.92,0,0,0,40,224H216a23.92,23.92,0,0,0,20.8-35.91ZM120,72a8,8,0,1,1,8,8A8,8,0,0,1,120,72Zm8,96a8,8,0,1,1,8-8A8,8,0,0,1,128,168Z"/>
+                    </svg>
+                    <div class="kpi-label">Clicks</div>
+                    <div class="kpi-value">91</div>
+                    <div class="kpi-subtext">Link clicks</div>
+                </div>
+
+                <div class="kpi-card">
+                    <svg class="kpi-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M96,156a12,12,0,1,1,12-12A12,12,0,0,1,96,156Zm108-28H52a12,12,0,0,0,0,24H204a12,12,0,0,0,0-24Zm-96-50a12,12,0,1,0,12,12A12,12,0,0,0,108,78Zm96,0H52a12,12,0,0,0,0,24H204a12,12,0,0,0,0-24Z"/>
+                    </svg>
+                    <div class="kpi-label">Click-Through Rate</div>
+                    <div class="kpi-value">2.23%</div>
+                    <div class="kpi-subtext">Excellent performance</div>
+                </div>
+
+                <div class="kpi-card">
+                    <svg class="kpi-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm-8,32v40H48V72Zm0,96H48V152H208Zm0-56H48V96H208Z"/>
+                    </svg>
+                    <div class="kpi-label">Cost Per Click</div>
+                    <div class="kpi-value">$0.80</div>
+                    <div class="kpi-subtext">Excellent CPC</div>
+                </div>
+
+                <div class="kpi-card">
+                    <svg class="kpi-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M216,48H180.6L158.69,23.32A12,12,0,0,0,141,31.4l11,17.6H104l11-17.6a12,12,0,1,0-17.7,16.08L75.4,48H40A16,16,0,0,0,24,64V200a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM128,184a32,32,0,1,1,32-32A32,32,0,0,1,128,184Z"/>
+                    </svg>
+                    <div class="kpi-label">Leads Generated</div>
+                    <div class="kpi-value">4</div>
+                    <div class="kpi-subtext">Qualified leads</div>
+                </div>
+
+                <div class="kpi-card">
+                    <svg class="kpi-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm-8,32v40H48V72Zm0,96H48V152H208Zm0-56H48V96H208Z"/>
+                    </svg>
+                    <div class="kpi-label">Cost Per Lead</div>
+                    <div class="kpi-value">$18.25</div>
+                    <div class="kpi-subtext">Highly efficient</div>
+                </div>
+            </div>
+
+            <!-- Campaign Status -->
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <h3>
+                        <svg class="insight-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/>
+                        </svg>
+                        Campaign Status
+                    </h3>
+                    <p><strong>Status:</strong> ✅ ACTIVELY GENERATING LEADS</p>
+                    <p><strong>Days Active:</strong> 6 days (Launched Nov 4)</p>
+                    <p><strong>Campaign ID:</strong> DaisyMD_Prospecting_English_Nov2025</p>
+                </div>
+
+                <div class="insight-card">
+                    <h3>
+                        <svg class="insight-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm-8,32v40H48V72Zm0,96H48V152H208Zm0-56H48V96H208Z"/>
+                        </svg>
+                        Daily Spend
+                    </h3>
+                    <p><strong>Budget Allocated:</strong> $20.00/day</p>
+                    <p><strong>Actual Spend:</strong> $10.43/day</p>
+                    <p><strong>Optimization:</strong> 52% efficiency</p>
+                </div>
+
+                <div class="insight-card">
+                    <h3>
+                        <svg class="insight-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z"/>
+                        </svg>
+                        Ad Inventory
+                    </h3>
+                    <p><strong>Total Ads:</strong> 12 created</p>
+                    <p><strong>Approval Rate:</strong> 100% approved</p>
+                    <p><strong>Active:</strong> 6 English | 6 Spanish paused</p>
+                </div>
+            </div>
+
+            <!-- Ad Set Performance -->
+            <div class="section-header">
+                <svg class="section-icon" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M224,200H32V40a8,8,0,0,0-16,0V208a16,16,0,0,0,16,16H224a8,8,0,0,0,0-16ZM88,144a8,8,0,0,0,8-8V88a8,8,0,0,0-16,0v48A8,8,0,0,0,88,144Zm48,0a8,8,0,0,0,8-8V56a8,8,0,0,0-16,0v80A8,8,0,0,0,136,144Zm48,0a8,8,0,0,0,8-8v-32a8,8,0,0,0-16,0v32A8,8,0,0,0,184,144Z"/>
+                </svg>
+                <h2>Ad Set Performance</h2>
+            </div>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Ad Set Name</th>
+                        <th>Impressions</th>
+                        <th>Clicks</th>
+                        <th>CTR</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Downey_Cold_Interests_English</strong></td>
+                        <td>2,142</td>
+                        <td>63</td>
+                        <td>2.96% 🏆</td>
+                        <td><span class="status-badge active">
+                            <svg class="status-icon-small" viewBox="0 0 256 256" fill="currentColor">
+                                <path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/>
+                            </svg>
+                            Top Performer
+                        </span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Downey_Cold_Broad_English</strong></td>
+                        <td>1,946</td>
+                        <td>45</td>
+                        <td>2.34%</td>
+                        <td><span class="status-badge active">
+                            <svg class="status-icon-small" viewBox="0 0 256 256" fill="currentColor">
+                                <path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/>
+                            </svg>
+                            Good
+                        </span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Campaign 2: Poppy Free Consultation -->
+            <div class="section-header">
+                <svg class="section-icon" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M128,20C64.36,20,12,72.36,12,136a116,116,0,0,0,20.73,65.33c8.88,14.79,16,30.52,19.45,47.58a8,8,0,0,0,6.68,6.79c24.71,3.14,49.46-1.47,72.14-13.77a127.84,127.84,0,0,0,19-10.83,127.84,127.84,0,0,0,19,10.83c22.68,12.3,47.43,16.91,72.14,13.77a8,8,0,0,0,6.68-6.79c3.43-17.06,10.57-32.79,19.45-47.58A116,116,0,0,0,244,136C244,72.36,191.64,20,128,20Zm74.47,158.85a107.05,107.05,0,0,1-15.5,35.49,164.27,164.27,0,0,1-42,8.4,164.27,164.27,0,0,1-42-8.4,107.05,107.05,0,0,1-15.5-35.49,100.33,100.33,0,0,1-17.47-55.85c0-55.17,42.68-100,95-100s95,44.83,95,100A100.33,100.33,0,0,1,202.47,178.85Z"/>
+                </svg>
+                <h2>Poppy Free Consultation Campaign</h2>
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <svg class="kpi-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm-4,176H52V52H204Z"/>
+                    </svg>
+                    <div class="kpi-label">Campaign Status</div>
+                    <div class="kpi-value">⏳ PAUSED</div>
+                    <div class="kpi-subtext">Awaiting ad approval</div>
+                </div>
+
+                <div class="kpi-card">
+                    <svg class="kpi-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm-8,32v40H48V72Zm0,96H48V152H208Zm0-56H48V96H208Z"/>
+                    </svg>
+                    <div class="kpi-label">Daily Budget</div>
+                    <div class="kpi-value">$15.00</div>
+                    <div class="kpi-subtext">When active</div>
+                </div>
+
+                <div class="kpi-card">
+                    <svg class="kpi-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M216,48H180.6L158.69,23.32A12,12,0,0,0,141,31.4l11,17.6H104l11-17.6a12,12,0,1,0-17.7,16.08L75.4,48H40A16,16,0,0,0,24,64V200a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM128,184a32,32,0,1,1,32-32A32,32,0,0,1,128,184Z"/>
+                    </svg>
+                    <div class="kpi-label">Days Active</div>
+                    <div class="kpi-value">2 Days</div>
+                    <div class="kpi-subtext">Launched Nov 8</div>
+                </div>
+
+                <div class="kpi-card">
+                    <svg class="kpi-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M216,48H180.6L158.69,23.32A12,12,0,0,0,141,31.4l11,17.6H104l11-17.6a12,12,0,1,0-17.7,16.08L75.4,48H40A16,16,0,0,0,24,64V200a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM128,184a32,32,0,1,1,32-32A32,32,0,0,1,128,184Z"/>
+                    </svg>
+                    <div class="kpi-label">Ad Sets Created</div>
+                    <div class="kpi-value">3</div>
+                    <div class="kpi-subtext">Configured</div>
+                </div>
+
+                <div class="kpi-card">
+                    <svg class="kpi-icon" viewBox="0 0 256 256" fill="currentColor">
+                        <path d="M224,48H180.6L158.69,23.32A12,12,0,0,0,141,31.4l11,17.6H104l11-17.6a12,12,0,1,0-17.7,16.08L75.4,48H40A16,16,0,0,0,24,64V200a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM128,184a32,32,0,1,1,32-32A32,32,0,0,1,128,184Z"/>
+                    </svg>
+                    <div class="kpi-label">Ads Pending Review</div>
+                    <div class="kpi-value">5</div>
+                    <div class="kpi-subtext">Awaiting approval</div>
+                </div>
+            </div>
+
+            <!-- Campaign Infrastructure -->
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <h3>
+                        <svg class="insight-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/>
+                        </svg>
+                        Campaign Infrastructure
+                    </h3>
+                    <p><strong>Status:</strong> ✅ COMPLETE & CONFIGURED</p>
+                    <p><strong>Campaign ID:</strong> Poppy_Free_Consultation_ACTIVE</p>
+                    <p><strong>Targeting:</strong> Harris County, TX (Local B2B)</p>
+                </div>
+
+                <div class="insight-card">
+                    <h3>
+                        <svg class="insight-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M136,80V32a8,8,0,0,0-16,0V80a8,8,0,0,0,16,0ZM88.49,99.51a8,8,0,1,0,11.32-11.32A64,64,0,0,0,64,192h0a64,64,0,0,0,128,0,8,8,0,0,0-16,0,48,48,0,0,1-96,0A64.14,64.14,0,0,1,88.49,99.51Z"/>
+                        </svg>
+                        Ad Approval Status
+                    </h3>
+                    <p><strong>Status:</strong> ⏳ PENDING REVIEW</p>
+                    <p><strong>Ads Submitted:</strong> 5 total</p>
+                    <p><strong>Expected Timeline:</strong> 24-48 hours</p>
+                </div>
+
+                <div class="insight-card">
+                    <h3>
+                        <svg class="insight-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M224,48H180.6L158.69,23.32A12,12,0,0,0,141,31.4l11,17.6H104l11-17.6a12,12,0,1,0-17.7,16.08L75.4,48H40A16,16,0,0,0,24,64V200a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM128,184a32,32,0,1,1,32-32A32,32,0,0,1,128,184Z"/>
+                        </svg>
+                        Conversion Tracking
+                    </h3>
+                    <p><strong>Pixel ID:</strong> 2592992851074892</p>
+                    <p><strong>Status:</strong> ✅ CONFIGURED</p>
+                    <p><strong>Goal:</strong> Lead form submissions</p>
+                </div>
+            </div>
+
+            <!-- Portfolio Health -->
+            <div class="section-header">
+                <svg class="section-icon" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M224,200H32V40a8,8,0,0,0-16,0V208a16,16,0,0,0,16,16H224a8,8,0,0,0,0-16ZM88,144a8,8,0,0,0,8-8V88a8,8,0,0,0-16,0v48A8,8,0,0,0,88,144Zm48,0a8,8,0,0,0,8-8V56a8,8,0,0,0-16,0v80A8,8,0,0,0,136,144Zm48,0a8,8,0,0,0,8-8v-32a8,8,0,0,0-16,0v32A8,8,0,0,0,184,144Z"/>
+                </svg>
+                <h2>Portfolio Health Summary</h2>
+            </div>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Campaign</th>
+                        <th>Status</th>
+                        <th>Performance</th>
+                        <th>Lead Generation</th>
+                        <th>Next Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Daisy MD Care</strong></td>
+                        <td><span class="status-badge active">
+                            <svg class="status-icon-small" viewBox="0 0 256 256" fill="currentColor">
+                                <path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34A8,8,0,0,1,173.66,98.34ZM224,128A96,96,0,1,1,128,32,96,96,0,0,1,224,128Z"/>
+                            </svg>
+                            Active
+                        </span></td>
+                        <td>2.23% CTR - Excellent</td>
+                        <td>4 leads generated</td>
+                        <td>Monitor & optimize</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Poppy Free Consultation</strong></td>
+                        <td><span class="status-badge pending">
+                            <svg class="status-icon-small" viewBox="0 0 256 256" fill="currentColor">
+                                <path d="M136,80V32a8,8,0,0,0-16,0V80a8,8,0,0,0,16,0ZM88.49,99.51a8,8,0,1,0,11.32-11.32A64,64,0,0,0,64,192h0a64,64,0,0,0,128,0,8,8,0,0,0-16,0,48,48,0,0,1-96,0A64.14,64.14,0,0,1,88.49,99.51Z"/>
+                            </svg>
+                            Paused
+                        </span></td>
+                        <td>Awaiting launch</td>
+                        <td>0 leads to date</td>
+                        <td>Approve ads</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Key Insights & Recommendations -->
+            <div class="section-header">
+                <svg class="section-icon" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M128,24A104,104,0,1,0,232,128,104,104,0,0,0,128,24ZM90.34,146.34l-32-32a8,8,0,0,1,11.32-11.32L96,124.68l57.34-57.34a8,8,0,0,1,11.32,11.32l-64,64A8,8,0,0,1,90.34,146.34Z"/>
+                </svg>
+                <h2>Key Insights & Recommendations</h2>
+            </div>
+
+            <div class="action-grid">
+                <div class="action-item">
+                    <h3>
+                        <svg class="action-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M224,56H96a8,8,0,0,0,0,16h99.58L53.29,194.29a8,8,0,0,0,11.42,11.42L206.58,83.71V184a8,8,0,0,0,16,0V64A8,8,0,0,0,224,56Z"/>
+                        </svg>
+                        Daisy is Exceeding Goals
+                    </h3>
+                    <p>2.23% CTR and $18.25 CPL demonstrate exceptional campaign performance. Interest-based targeting (Downey_Cold_Interests) is outperforming broad targeting.</p>
+                </div>
+
+                <div class="action-item">
+                    <h3>
+                        <svg class="action-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M136,80V32a8,8,0,0,0-16,0V80a8,8,0,0,0,16,0ZM88.49,99.51a8,8,0,1,0,11.32-11.32A64,64,0,0,0,64,192h0a64,64,0,0,0,128,0,8,8,0,0,0-16,0,48,48,0,0,1-96,0A64.14,64.14,0,0,1,88.49,99.51Z"/>
+                        </svg>
+                        Poppy Awaiting Launch
+                    </h3>
+                    <p>All infrastructure ready. 5 ads pending approval (typically 24-48 hours). Monitor approval status closely - likely to launch within 2 days.</p>
+                </div>
+
+                <div class="action-item">
+                    <h3>
+                        <svg class="action-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M224,48a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,48Zm-8,56H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/>
+                        </svg>
+                        Scale Daisy Spend
+                    </h3>
+                    <p>Currently spending only $10.43/day of $20 budget. Increase daily spend to maximize current exceptional performance while maintaining lead quality.</p>
+                </div>
+
+                <div class="action-item">
+                    <h3>
+                        <svg class="action-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M224,48a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,48Zm-8,56H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/>
+                        </svg>
+                        Audience Segmentation
+                    </h3>
+                    <p>Strong performance from "Cold Interests" segment (2.96% CTR). Consider creating additional interest-based ad sets for expansion.</p>
+                </div>
+
+                <div class="action-item">
+                    <h3>
+                        <svg class="action-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M224,48a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,48Zm-8,56H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/>
+                        </svg>
+                        Maintain Approval Momentum
+                    </h3>
+                    <p>Once Poppy ads approve, expect immediate lead generation. Have sales team ready to handle increased inbound inquiries.</p>
+                </div>
+
+                <div class="action-item">
+                    <h3>
+                        <svg class="action-icon" viewBox="0 0 256 256" fill="currentColor">
+                            <path d="M224,48a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,48Zm-8,56H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/>
+                        </svg>
+                        Weekly Performance Reviews
+                    </h3>
+                    <p>Continue weekly Thursdays at scheduled check time for both campaigns. Track lead quality and conversion rates through full funnel.</p>
+                </div>
+            </div>
+
+            <!-- Expected Performance -->
+            <div class="section-header">
+                <svg class="section-icon" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM80,184a8,8,0,1,1,8-8A8,8,0,0,1,80,184Zm48,0a8,8,0,1,1,8-8A8,8,0,0,1,128,184Zm48,0a8,8,0,1,1,8-8A8,8,0,0,1,176,184Z"/>
+                </svg>
+                <h2>Expected Performance Timeline</h2>
+            </div>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Campaign</th>
+                        <th>Next Phase</th>
+                        <th>Expected Metrics</th>
+                        <th>Timeline</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Daisy MD Care</strong></td>
+                        <td>Optimization & Scale</td>
+                        <td>6-10 leads/week at $15-18 CPL</td>
+                        <td>Ongoing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Poppy Free Consultation</strong></td>
+                        <td>Launch & Ramp</td>
+                        <td>Ad approval, then 2-5 leads week 1</td>
+                        <td>Next 24-48 hours</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="text-align: center; margin-top: var(--spacing-2xl); color: var(--muted-teal); font-size: 0.95em;">
+                <strong>Report Generated:</strong> November 10, 2025 | <strong>Next Update:</strong> November 13, 2025 (Mid-week check)
+            </p>
         </div>
     </div>
+
+    <script>
+        // Tab Navigation
+        const navTabs = document.querySelectorAll('.nav-tab');
+        const pages = document.querySelectorAll('.page');
+
+        navTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const pageId = this.getAttribute('data-page');
+
+                // Remove active class from all tabs and pages
+                navTabs.forEach(t => t.classList.remove('active'));
+                pages.forEach(p => p.classList.remove('active'));
+
+                // Add active class to clicked tab and corresponding page
+                this.classList.add('active');
+                document.getElementById(pageId).classList.add('active');
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+    </script>
 </body>
 </html>

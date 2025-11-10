@@ -8,16 +8,22 @@ This is the official location where all campaign updates, reports, and performan
 
 ## 📊 Current Reports
 
-### November 4-10, 2025 (First 6 Days)
-**Status:** ✅ CAMPAIGN ACTIVE | 📈 EXCEEDING TARGETS | ✓ CONVERSIONS TRACKING
+### Multi-Campaign Performance Dashboard
+**Status:** ✅ BOTH CAMPAIGNS ACTIVE | 📈 EXCEEDING TARGETS | ✓ CONVERSION TRACKING ACTIVE
 
-- **Impressions:** 1,037
-- **Clicks:** 49
-- **CTR:** 5.83% (4x above industry average)
-- **CPC:** $1.51
-- **Daily Budget:** $32
+**Includes:**
+- **Daisy MD Care (Google Ads)** - Nov 4-10, 2025 data
+  - Impressions: 1,037 | Clicks: 49 | CTR: 5.83% | CPC: $1.51
+  - Status: ACTIVELY GENERATING LEADS
 
-**View the full report:** [CAMPAIGN_PERFORMANCE_REPORT_20251110.html](./index.html)
+- **Poppy Marketing (Meta Ads)** - Nov 10, 2025 snapshot
+  - 2 campaigns: Daisy MD Care (6 days) + Poppy Free Consultation (2 days)
+  - Combined reach: 4,088+ impressions | 91+ clicks | 2.23% average CTR
+
+**View the full interactive report:** [Multi-Campaign Dashboard](./index.html)
+- **Tab 1:** Google Ads - Daisy MD Care campaign analysis
+- **Tab 2:** Meta Ads - Poppy Marketing portfolio overview
+- **Mobile-optimized:** Fully responsive on all devices
 
 ---
 
@@ -129,7 +135,8 @@ This is the official location where all campaign updates, reports, and performan
 ### Version History
 | Date | Update | Details |
 |------|--------|---------|
-| Nov 10 | Initial Report | First 6 days performance analysis (Nov 4-10) |
+| Nov 10 | Multi-Campaign Dashboard | Enhanced report with navigation tabs: Daisy Google Ads + Poppy Meta Ads portfolio |
+| Nov 10 | Initial Report | First 6 days performance analysis (Nov 4-10) - Daisy Google Ads |
 
 ---
 
