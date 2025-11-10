@@ -8,21 +8,21 @@ This is the official location where all campaign updates, reports, and performan
 
 ## 📊 Current Reports
 
-### Multi-Campaign Performance Dashboard
-**Status:** ✅ BOTH CAMPAIGNS ACTIVE | 📈 EXCEEDING TARGETS | ✓ CONVERSION TRACKING ACTIVE
+### Daisy MD Care - Multi-Platform Analysis
+**Status:** ✅ BOTH CHANNELS ACTIVE | 📈 EXCEEDING TARGETS | ✓ CONVERSION TRACKING ACTIVE
 
 **Includes:**
-- **Daisy MD Care (Google Ads)** - Nov 4-10, 2025 data
+- **Google Ads Campaign** - Nov 4-10, 2025 data
   - Impressions: 1,037 | Clicks: 49 | CTR: 5.83% | CPC: $1.51
-  - Status: ACTIVELY GENERATING LEADS
+  - Status: ACTIVELY GENERATING LEADS | Scaling opportunity Nov 15
 
-- **Poppy Marketing (Meta Ads)** - Nov 10, 2025 snapshot
-  - 2 campaigns: Daisy MD Care (6 days) + Poppy Free Consultation (2 days)
-  - Combined reach: 4,088+ impressions | 91+ clicks | 2.23% average CTR
+- **Meta Ads Campaign** - Nov 10, 2025 snapshot
+  - Impressions: 4,088 | Clicks: 91 | CTR: 2.23% | CPL: $18.25
+  - Status: ACTIVELY GENERATING LEADS | 4 qualified leads generated
 
-**View the full interactive report:** [Multi-Campaign Dashboard](./index.html)
-- **Tab 1:** Google Ads - Daisy MD Care campaign analysis
-- **Tab 2:** Meta Ads - Poppy Marketing portfolio overview
+**View the full interactive report:** [Multi-Channel Dashboard](./index.html)
+- **Tab 1:** Google Ads - Full campaign analysis with 6-day performance data
+- **Tab 2:** Meta Ads - Campaign performance and ad set breakdown
 - **Mobile-optimized:** Fully responsive on all devices
 
 ---
@@ -135,7 +135,7 @@ This is the official location where all campaign updates, reports, and performan
 ### Version History
 | Date | Update | Details |
 |------|--------|---------|
-| Nov 10 | Multi-Campaign Dashboard | Enhanced report with navigation tabs: Daisy Google Ads + Poppy Meta Ads portfolio |
+| Nov 10 | Multi-Channel Analysis | Enhanced report with navigation tabs: Daisy Google Ads + Daisy Meta Ads comparison |
 | Nov 10 | Initial Report | First 6 days performance analysis (Nov 4-10) - Daisy Google Ads |
 
 ---
