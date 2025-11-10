@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-11-10T11:53:12.786778",
+  "campaign": {},
+  "metrics": {
+    "impressions": 0,
+    "clicks": 0,
+    "conversions": 0,
+    "cost_micros": 0,
+    "ctr": 0,
+    "avg_cpc": 0,
+    "days": 0
+  },
+  "ad_groups": [],
+  "ads": [],
+  "fetch_start_date": "2025-11-03",
+  "fetch_end_date": "2025-11-10",
+  "total_ads": 0,
+  "total_ad_groups": 0
+}
